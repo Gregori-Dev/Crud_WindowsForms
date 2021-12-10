@@ -1,0 +1,12 @@
+C:\Users\Next\source\repos\CRUD\CrudDomain\bin\Debug\net5.0\CrudDomain.deps.json
+C:\Users\Next\source\repos\CRUD\CrudDomain\bin\Debug\net5.0\CrudDomain.dll
+C:\Users\Next\source\repos\CRUD\CrudDomain\bin\Debug\net5.0\ref\CrudDomain.dll
+C:\Users\Next\source\repos\CRUD\CrudDomain\bin\Debug\net5.0\CrudDomain.pdb
+C:\Users\Next\source\repos\CRUD\CrudDomain\obj\Debug\net5.0\CrudDomain.csproj.AssemblyReference.cache
+C:\Users\Next\source\repos\CRUD\CrudDomain\obj\Debug\net5.0\CrudDomain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Next\source\repos\CRUD\CrudDomain\obj\Debug\net5.0\CrudDomain.AssemblyInfoInputs.cache
+C:\Users\Next\source\repos\CRUD\CrudDomain\obj\Debug\net5.0\CrudDomain.AssemblyInfo.cs
+C:\Users\Next\source\repos\CRUD\CrudDomain\obj\Debug\net5.0\CrudDomain.csproj.CoreCompileInputs.cache
+C:\Users\Next\source\repos\CRUD\CrudDomain\obj\Debug\net5.0\CrudDomain.dll
+C:\Users\Next\source\repos\CRUD\CrudDomain\obj\Debug\net5.0\ref\CrudDomain.dll
+C:\Users\Next\source\repos\CRUD\CrudDomain\obj\Debug\net5.0\CrudDomain.pdb

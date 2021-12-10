@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "CRUD/1.0.0": {
+        "dependencies": {
+          "Crud.Domain": "1.0.0"
+        },
+        "runtime": {
+          "CRUD.dll": {}
+        }
+      },
+      "Crud.Domain/1.0.0": {
+        "runtime": {
+          "Crud.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CRUD/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Crud.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
