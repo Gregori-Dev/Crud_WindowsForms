@@ -17,35 +17,26 @@ namespace CRUD
 {
     public partial class FormCadastro : Form
     {
-        private  IRepositorio Repositorio;
-        string Nome, Idade;
-        int Id;
-
-        Usuario Usuario = new Usuario();
-          [Inject()]
-        public FormCadastro(IRepositorio repositorio)
+        private IRepositorio Repositorio { get; set; }
+        Usuario _Usuario = new Usuario();
+        int id;
+        string nome;
+        string idade;
+        
+        public FormCadastro(IRepositorio repositorio, Usuario usuario)
         {
-            this.Repositorio = repositorio;
-            InitializeComponent();
-            
-          //  Nome = nome;
-            //Idade = idade;
-           // Id = idCliente;
+            _Usuario = usuario;
+            Repositorio = repositorio;
 
-            Usuario.NomeCliente = Nome;
-            Usuario.IdadeCliente = Idade;   
-            
-            if (this.Nome != String.Empty)
+            InitializeComponent();
+
+            if (nome != String.Empty)
             {
-                TbNome.Text = Nome;
-                TbIdade.Text = Idade;
+                TbNome.Text = nome;
+                TbIdade.Text = idade;
             }
         }
-        public FormCadastro()
-        {
-            InitializeComponent();
-        }
-        public bool KeyEdit = true ;
+        public bool KeyEdit;
         private void BtLimpar_Click(object sender, EventArgs e)
         {
             TbNome.Text = string.Empty;
@@ -57,6 +48,7 @@ namespace CRUD
         }
         private void BtSalvar_Click(object sender, EventArgs e)
         {
+
             if (TbNome.Text.Trim().Equals(string.Empty))
             {                
                 MessageBox.Show("Você deve informa o nome. ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -83,24 +75,35 @@ namespace CRUD
                 var ultimoId = listUsuarios.Instance.ListagemCliente.Count == 0
                  ? 0
                  : listUsuarios.Instance.ListagemCliente.Max(x => x.IdCliente);
-                Usuario.IdCliente = ultimoId +1;
-                Usuario.NomeCliente = TbNome.Text;
-                Usuario.IdadeCliente = TbIdade.Text;
-                Repositorio.Adicionar(Usuario);
+                _Usuario.IdCliente = ultimoId +1;
+                _Usuario.NomeCliente = TbNome.Text;
+                _Usuario.IdadeCliente = TbIdade.Text;
+                Repositorio.Adicionar(_Usuario);
                 DialogResult = DialogResult.OK;
             }
             else if (KeyEdit == false)
             {              
-                    int idProcura = Id;
+                    int idProcura = id;
 
-                Usuario.IdadeCliente = TbIdade.Text;
-                Usuario.NomeCliente = TbNome.Text;
-                Usuario.IdCliente = Id;
+                _Usuario.IdadeCliente = TbIdade.Text;
+                _Usuario.NomeCliente = TbNome.Text;
+                _Usuario.IdCliente = id;
 
-                Repositorio.Update(Usuario, idProcura);
+                Repositorio.Update(_Usuario, idProcura);
                 DialogResult = DialogResult.OK;
                 }
-            }                    
-        }       
+            }
+        private void FormCadastro_Load(object sender, EventArgs e)
+        {
+             id = _Usuario.IdCliente;
+             nome = _Usuario.NomeCliente;
+             idade = _Usuario.IdadeCliente;
+            if (nome != String.Empty)
+            {
+                TbNome.Text = nome;
+                TbIdade.Text = idade;
+            }
+        }
+    }       
     }
       

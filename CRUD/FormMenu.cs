@@ -1,6 +1,7 @@
 ﻿using Crud.Domain;
 using Crud.Infra;
 using Ninject;
+using Ninject.Parameters;
 using System;
 
 using System.Windows.Forms;
@@ -13,31 +14,24 @@ namespace CRUD
         public bool KeyDetalhes = true;
 
         private IRepositorio Repositorio{ get; set; }
-        Usuario Usuario = new Usuario();
+        Usuario usuario = new Usuario();
+
         [Inject()]
         public FormMenu(IRepositorio repositorio)
         {
             InitializeComponent();
-            Repositorio = repositorio;
-          
+            Repositorio = repositorio; 
         }
         private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCadastro frmC = FormResolve.Resolve <FormCadastro>();
+            var param = new ConstructorArgument("usuario", new Usuario()); 
+            FormCadastro frmC = FormResolve.Resolve<FormCadastro>(param);
             frmC.KeyEdit = true;
+
             if (frmC.ShowDialog()== DialogResult.OK)
             {
                     DGV_List.DataSource = null;
                     DGV_List.DataSource = listUsuarios.Instance.ListagemCliente;
-            }
-        }
-        public void atualizarToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
-            DGV_List.DataSource = listUsuarios.Instance.ListagemCliente;            
-            foreach (Usuario usuario in listUsuarios.Instance.ListagemCliente)
-            {
-                DGV_List.DataSource = null;
-                DGV_List.DataSource = listUsuarios.Instance.ListagemCliente;                 
             }
         }
         private void Deletar_Click(object sender, EventArgs e)
@@ -63,15 +57,17 @@ namespace CRUD
                 MessageBox.Show("Selecione um item para editar.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; 
             }
-            else
+
+            var param = new ConstructorArgument("usuario", new Usuario
             {
-                Usuario.IdCliente = Convert.ToInt32(DGV_List.CurrentRow.Cells[0].Value);
-                Usuario.NomeCliente = DGV_List.CurrentRow.Cells[1].Value.ToString();
-                Usuario.IdadeCliente = DGV_List.CurrentRow.Cells[2].Value.ToString();
-                KeyDetalhes = false;
-            }
-                FormCadastro frmE = FormResolve.Resolve<FormCadastro>(Usuario.NomeCliente, Usuario.IdadeCliente, Usuario.IdCliente);
-                frmE.KeyEdit = false;
+            IdCliente = Convert.ToInt32(DGV_List.CurrentRow.Cells[0].Value),
+            NomeCliente = DGV_List.CurrentRow.Cells[1].Value.ToString(),
+            IdadeCliente = DGV_List.CurrentRow.Cells[2].Value.ToString()
+            });
+            FormCadastro frmE = FormResolve.Resolve<FormCadastro>(param);
+            KeyDetalhes = false;
+            frmE.KeyEdit = false;
+
             if (frmE.ShowDialog() == DialogResult.OK)
              {
                 DGV_List.DataSource = null;

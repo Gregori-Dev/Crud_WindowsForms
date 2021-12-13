@@ -117,6 +117,7 @@ namespace CRUD
             this.Controls.Add(this.label1);
             this.Name = "FormCadastro";
             this.Text = "FormCadastro";
+            this.Load += new System.EventHandler(this.FormCadastro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

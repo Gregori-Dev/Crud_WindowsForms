@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ninject;
 
 namespace CRUD
 {
@@ -22,6 +23,7 @@ namespace CRUD
 
             FormResolve.Wire(FormModule.Create());
             Application.Run(FormResolve.Resolve<FormMenu>());
+        
 
 
         }

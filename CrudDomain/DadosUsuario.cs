@@ -14,7 +14,9 @@ namespace Crud.Domain
             this.NomeCliente = NomeList;
             this.IdadeCliente = IdadeList;
         }
-        public Usuario() { }
+        public Usuario()
+        {
+        }
     }
 }
 

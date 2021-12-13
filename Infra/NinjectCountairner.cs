@@ -1,11 +1,7 @@
 ﻿using Crud.Domain;
 using Ninject;
 using Ninject.Modules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Ninject.Parameters;
 
 namespace Crud.Infra
 {
@@ -13,10 +9,8 @@ namespace Crud.Infra
     {
         public override void Load()
         {
-        Bind<IRepositorio>().To<Repositorio>();
-     
+        Bind <IRepositorio>().To<Repositorio>();
         }
-
         public static FormModule Create()
         {
             return new FormModule();
@@ -25,20 +19,13 @@ namespace Crud.Infra
     public class FormResolve
         {
             private static IKernel _ninjectKernel;
-
             public static void Wire(INinjectModule module)
             {
                 _ninjectKernel = new StandardKernel(module);
             }
-
-            public static IRepositorio Resolve<IRepositorio>()
-            {
-                return _ninjectKernel.Get<IRepositorio>();
-            }
-
-        public static T Resolve<T>(string nomeCliente, string idadeCliente, int idCliente)
+        public static T Resolve<T>(params IParameter[] parameters)
         {
-            return _ninjectKernel.Get<T>();
+            return _ninjectKernel.Get<T>(parameters);
         }
     }
 }
