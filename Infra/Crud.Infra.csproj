@@ -5,11 +5,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="linq2db.SqlServer" Version="3.6.0" />
+    <PackageReference Include="linq2db.Tools" Version="3.6.0" />
     <PackageReference Include="Ninject" Version="3.3.4" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CrudDomain\Crud.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CrudModel\Conexão.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Conexão.generated.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="CrudModel\Conexão.generated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Conexão.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

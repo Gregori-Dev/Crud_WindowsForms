@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Crud.Infra
 {
-    public class Repositorio : IRepositorio
+    public class RepositorioLista : IRepositorio
     {
         public void Adicionar(Usuario usuario)
         {

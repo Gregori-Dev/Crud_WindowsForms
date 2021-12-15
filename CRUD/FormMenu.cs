@@ -1,5 +1,6 @@
 ﻿using Crud.Domain;
 using Crud.Infra;
+using CrudModel;
 using Ninject;
 using Ninject.Parameters;
 using System;
@@ -10,13 +11,12 @@ namespace CRUD
 {
     public partial class FormMenu : Form 
     {
-      
+        
+
         public bool KeyDetalhes = true;
 
         private IRepositorio Repositorio{ get; set; }
-        Usuario usuario = new Usuario();
-
-        [Inject()]
+        Usuario usuario = new Usuario();   
         public FormMenu(IRepositorio repositorio)
         {
             InitializeComponent();
@@ -36,6 +36,10 @@ namespace CRUD
         }
         private void Deletar_Click(object sender, EventArgs e)
         {
+            //DadosClienteDb NovoDadosClienteDb = new DadosClienteDb();
+            //NovoDadosClienteDb.
+
+
             if ((DGV_List.CurrentRow) == null)
             {
                 MessageBox.Show("Selecione um item para excluir.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);

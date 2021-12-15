@@ -6,6 +6,33 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
+      "linq2db/3.6.0": {
+        "dependencies": {
+          "System.ComponentModel.Annotations": "4.7.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/linq2db.dll": {
+            "assemblyVersion": "3.6.0.0",
+            "fileVersion": "3.6.0.0"
+          }
+        }
+      },
+      "linq2db.SqlServer/3.6.0": {
+        "dependencies": {
+          "linq2db": "3.6.0"
+        }
+      },
+      "linq2db.Tools/3.6.0": {
+        "dependencies": {
+          "linq2db": "3.6.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/linq2db.Tools.dll": {
+            "assemblyVersion": "3.6.0.0",
+            "fileVersion": "3.6.0.0"
+          }
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
       "Ninject/3.3.4": {
@@ -17,6 +44,14 @@
           "lib/netstandard2.0/Ninject.dll": {
             "assemblyVersion": "3.3.4.0",
             "fileVersion": "3.3.4.0"
+          }
+        }
+      },
+      "System.ComponentModel.Annotations/4.7.0": {
+        "runtime": {
+          "lib/netstandard2.1/System.ComponentModel.Annotations.dll": {
+            "assemblyVersion": "4.3.1.0",
+            "fileVersion": "4.700.19.56404"
           }
         }
       },
@@ -95,6 +130,27 @@
     }
   },
   "libraries": {
+    "linq2db/3.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZgaxVkEbxbHparKQ8fCW13S1wp9m3vDQkmbbssIhaNmbFoWm9zV8K/tmX+cL0CEcqRAdIibSOsIdZp3QWNK0mg==",
+      "path": "linq2db/3.6.0",
+      "hashPath": "linq2db.3.6.0.nupkg.sha512"
+    },
+    "linq2db.SqlServer/3.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y979dSmAT3FGb4ZQTPos/2ELEt0RRV2lwPRPPpjWdaKZP60xRqp6PwnhlQWFwz5ZFFgJ0BAKjXZX5D0oYmUbPg==",
+      "path": "linq2db.sqlserver/3.6.0",
+      "hashPath": "linq2db.sqlserver.3.6.0.nupkg.sha512"
+    },
+    "linq2db.Tools/3.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D49u1Sp1jctllVsp4BXCve/D6VVwpAifo88DC5x/GWBWCGJGvQrAYZp42RAM/5rxrlX7FBoZguWXA3rSvfZBUQ==",
+      "path": "linq2db.tools/3.6.0",
+      "hashPath": "linq2db.tools.3.6.0.nupkg.sha512"
+    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
       "serviceable": true,
@@ -115,6 +171,13 @@
       "sha512": "sha512-CmbWW97FfJuh4LEOVZM/spqXl4KAulRUjqeMwRd5J9rDMQArmIYaDMU3pyzXXHT062tbF0OPIMwI7tSOtprPfg==",
       "path": "ninject/3.3.4",
       "hashPath": "ninject.3.3.4.nupkg.sha512"
+    },
+    "System.ComponentModel.Annotations/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0YFqjhp/mYkDGpU0Ye1GjE53HMp9UVfGN7seGpAMttAC0C40v5gw598jCgpbBLMmCo0E5YRLBv5Z2doypO49ZQ==",
+      "path": "system.componentmodel.annotations/4.7.0",
+      "hashPath": "system.componentmodel.annotations.4.7.0.nupkg.sha512"
     },
     "System.IO/4.3.0": {
       "type": "package",

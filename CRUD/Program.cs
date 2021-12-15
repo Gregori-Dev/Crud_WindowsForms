@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Ninject;
+using LinqToDB.Data;
 
 namespace CRUD
 {
@@ -17,7 +17,7 @@ namespace CRUD
         [STAThread]
         static void Main()
         {
-            
+            DataConnection.DefaultSettings = new MySettings();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
 

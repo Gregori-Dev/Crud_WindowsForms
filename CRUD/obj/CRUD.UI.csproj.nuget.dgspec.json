@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Next\\source\\repos\\CRUD\\CRUD\\CRUD.UI.csproj": {}
+    "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CRUD\\CRUD.UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Next\\source\\repos\\CRUD\\CrudDomain\\Crud.Domain.csproj": {
+    "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Next\\source\\repos\\CRUD\\CrudDomain\\Crud.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj",
         "projectName": "Crud.Domain",
-        "projectPath": "C:\\Users\\Next\\source\\repos\\CRUD\\CrudDomain\\Crud.Domain.csproj",
-        "packagesPath": "C:\\Users\\Next\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Next\\source\\repos\\CRUD\\CrudDomain\\obj\\",
+        "projectPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj",
+        "packagesPath": "C:\\Users\\Gregori\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CrudDomain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Next\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gregori\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -47,6 +47,10 @@
             "Ninject": {
               "target": "Package",
               "version": "[3.3.4, )"
+            },
+            "linq2db.SqlServer": {
+              "target": "Package",
+              "version": "[3.6.0, )"
             }
           },
           "imports": [
@@ -68,20 +72,20 @@
         }
       }
     },
-    "C:\\Users\\Next\\source\\repos\\CRUD\\CRUD\\CRUD.UI.csproj": {
+    "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CRUD\\CRUD.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Next\\source\\repos\\CRUD\\CRUD\\CRUD.UI.csproj",
+        "projectUniqueName": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CRUD\\CRUD.UI.csproj",
         "projectName": "CRUD.UI",
-        "projectPath": "C:\\Users\\Next\\source\\repos\\CRUD\\CRUD\\CRUD.UI.csproj",
-        "packagesPath": "C:\\Users\\Next\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Next\\source\\repos\\CRUD\\CRUD\\obj\\",
+        "projectPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CRUD\\CRUD.UI.csproj",
+        "packagesPath": "C:\\Users\\Gregori\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CRUD\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Next\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gregori\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -96,11 +100,11 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\Next\\source\\repos\\CRUD\\CrudDomain\\Crud.Domain.csproj": {
-                "projectPath": "C:\\Users\\Next\\source\\repos\\CRUD\\CrudDomain\\Crud.Domain.csproj"
+              "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj": {
+                "projectPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj"
               },
-              "C:\\Users\\Next\\source\\repos\\CRUD\\Infra\\Crud.Infra.csproj": {
-                "projectPath": "C:\\Users\\Next\\source\\repos\\CRUD\\Infra\\Crud.Infra.csproj"
+              "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\Infra\\Crud.Infra.csproj": {
+                "projectPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\Infra\\Crud.Infra.csproj"
               }
             }
           }
@@ -118,6 +122,10 @@
             "Ninject": {
               "target": "Package",
               "version": "[3.3.4, )"
+            },
+            "linq2db.SqlServer": {
+              "target": "Package",
+              "version": "[3.6.0, )"
             }
           },
           "imports": [
@@ -142,20 +150,20 @@
         }
       }
     },
-    "C:\\Users\\Next\\source\\repos\\CRUD\\Infra\\Crud.Infra.csproj": {
+    "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\Infra\\Crud.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Next\\source\\repos\\CRUD\\Infra\\Crud.Infra.csproj",
+        "projectUniqueName": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\Infra\\Crud.Infra.csproj",
         "projectName": "Crud.Infra",
-        "projectPath": "C:\\Users\\Next\\source\\repos\\CRUD\\Infra\\Crud.Infra.csproj",
-        "packagesPath": "C:\\Users\\Next\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Next\\source\\repos\\CRUD\\Infra\\obj\\",
+        "projectPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\Infra\\Crud.Infra.csproj",
+        "packagesPath": "C:\\Users\\Gregori\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\Infra\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Next\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gregori\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -170,8 +178,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Next\\source\\repos\\CRUD\\CrudDomain\\Crud.Domain.csproj": {
-                "projectPath": "C:\\Users\\Next\\source\\repos\\CRUD\\CrudDomain\\Crud.Domain.csproj"
+              "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj": {
+                "projectPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj"
               }
             }
           }
@@ -189,6 +197,18 @@
             "Ninject": {
               "target": "Package",
               "version": "[3.3.4, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            },
+            "linq2db.SqlServer": {
+              "target": "Package",
+              "version": "[3.6.0, )"
+            },
+            "linq2db.Tools": {
+              "target": "Package",
+              "version": "[3.6.0, )"
             }
           },
           "imports": [
