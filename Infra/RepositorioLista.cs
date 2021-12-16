@@ -1,32 +1,44 @@
 ﻿using Crud.Domain;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Crud.Infra
 {
     public class RepositorioLista : IRepositorio
     {
-        public void Adicionar(Usuario usuario)
+        public void Adicionar(DadosUsuario dadosUsuario)
         {
-            listUsuarios.Instance.ListagemCliente.Add(usuario);
+            listUsuarios.Instance.ListagemCliente.Add(dadosUsuario);
+            var maior = listUsuarios.Instance.ListagemCliente.Max(x => x.IdClientes);
+            dadosUsuario.IdClientes = maior + 1;
+            
         }
-        public void Delete(int contador)
+        public void Delete(DadosUsuario dadosUsuario)
         {
-            listUsuarios.Instance.ListagemCliente.RemoveAt(contador);
+            
+            for (int i = 0; i < listUsuarios.Instance.ListagemCliente.Count; i++)
+            {
+                if (dadosUsuario.IdClientes == listUsuarios.Instance.ListagemCliente[i].IdClientes)
+                {
+                    listUsuarios.Instance.ListagemCliente.RemoveAt(i);
+                }
+            }
+
         }
 
-        public void Update(Usuario usuario, int idProcura )
+        public object ExibirTodos(DadosUsuario dadosUsuario)
+        {
+            return listUsuarios.Instance.ListagemCliente;
+        }
+
+        public void Update(DadosUsuario dadosUsuario, int idProcura )
         {
             for (int i = 0; i < listUsuarios.Instance.ListagemCliente.Count; i++)
             {
-                if (idProcura == listUsuarios.Instance.ListagemCliente[i].IdCliente)
+                if (idProcura == listUsuarios.Instance.ListagemCliente[i].IdClientes)
                 {
-                    listUsuarios.Instance.ListagemCliente[i].IdadeCliente = usuario.IdadeCliente;
-                    listUsuarios.Instance.ListagemCliente[i].NomeCliente = usuario.NomeCliente;
-                    listUsuarios.Instance.ListagemCliente[i].IdCliente = usuario.IdCliente;
+                    listUsuarios.Instance.ListagemCliente[i].IdadeClientes = dadosUsuario.IdadeClientes;
+                    listUsuarios.Instance.ListagemCliente[i].NomeClientes = dadosUsuario.NomeClientes;
+                    listUsuarios.Instance.ListagemCliente[i].IdClientes = dadosUsuario.IdClientes;
                 }
             }         
         }

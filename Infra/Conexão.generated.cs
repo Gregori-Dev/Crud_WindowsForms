@@ -11,13 +11,12 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-
+using Crud.Domain;
 using LinqToDB;
 using LinqToDB.Common;
 using LinqToDB.Configuration;
 using LinqToDB.Data;
 using LinqToDB.Mapping;
-using System.Data.SqlClient;
 
 namespace CrudModel
 {
@@ -28,7 +27,7 @@ namespace CrudModel
 	/// </summary>
 	public partial class CrudDB : LinqToDB.Data.DataConnection
 	{
-		public ITable<DadosClienteDb> DadosClienteDbs { get { return this.GetTable<DadosClienteDb>(); } }
+		public ITable<DadosUsuario> dadosUsuarios { get { return this.GetTable<DadosUsuario>(); } }
 
 		public CrudDB()
 		{
@@ -61,15 +60,6 @@ namespace CrudModel
 		partial void InitMappingSchema();
 	}
 
-	[Table(Schema="dbo", Name="DadosClienteDb")]
-	public partial class DadosClienteDb
-	{
-        internal readonly bool Discontinued;
-
-        [PrimaryKey, NotNull] public string IdCliente    { get; set; } // nchar(10)
-		[Column,     NotNull] public string NomeCliente  { get; set; } // varchar(50)
-		[Column,     NotNull] public string IdadeCliente { get; set; } // varchar(50)
-	}
 
 	public static partial class CrudDBStoredProcedures
 	{
@@ -175,10 +165,10 @@ namespace CrudModel
 
 	public static partial class TableExtensions
 	{
-		public static DadosClienteDb Find(this ITable<DadosClienteDb> table, string IdCliente)
+		public static DadosUsuario Find(this ITable<DadosUsuario> table, int IdClientes)
 		{
 			return table.FirstOrDefault(t =>
-				t.IdCliente == IdCliente);
+				t.IdClientes == IdClientes);
 		}
 	}
 }

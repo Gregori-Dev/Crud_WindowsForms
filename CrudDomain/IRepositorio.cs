@@ -1,17 +1,12 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Crud.Domain
+﻿namespace Crud.Domain
 {
     public interface IRepositorio
     {
-        void Adicionar(Usuario usuario);
-        void Delete(int contador);
-        void Update(Usuario usuario, int idProcura);
+        void Adicionar(DadosUsuario dadosUsuario);
+        void Delete(DadosUsuario dadosUsuario);
+        void Update(DadosUsuario dadosUsuario, int idProcura);
+
+        object ExibirTodos(DadosUsuario dadosUsuario);
 
     }
 }
