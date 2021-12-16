@@ -4,17 +4,17 @@ using System.Linq;
 
 namespace Crud.Domain
 {
-    public class Usuario
+    public class DadosUsuario
     {
-        public int IdCliente { get; set; }
-        public string NomeCliente { get; set; }
-        public string IdadeCliente { get; set; } 
-        public Usuario(string NomeList, string IdadeList)
+        public int IdClientes { get; set; }
+        public string NomeClientes { get; set; }
+        public string IdadeClientes { get; set; } 
+        public DadosUsuario(string NomeList, string IdadeList)
         {
-            this.NomeCliente = NomeList;
-            this.IdadeCliente = IdadeList;
+            this.NomeClientes = NomeList;
+            this.IdadeClientes = IdadeList;
         }
-        public Usuario()
+        public DadosUsuario()
         {
         }
     }

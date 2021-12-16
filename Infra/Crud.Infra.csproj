@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="CrudModel\Conexão.tt">
+    <None Update="Conexão.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Conexão.generated.cs</LastGenOutput>
     </None>
@@ -27,11 +27,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="CrudModel\Conexão.generated.cs">
+    <Compile Update="Conexão.generated.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Conexão.tt</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CrudModel\" />
   </ItemGroup>
 
 </Project>

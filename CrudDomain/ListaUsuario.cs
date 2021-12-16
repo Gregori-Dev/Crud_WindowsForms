@@ -8,7 +8,7 @@ namespace Crud.Domain
 {
    public sealed class listUsuarios
     {
-        public List<Usuario> ListagemCliente { get; set; }
+        public List<DadosUsuario> ListagemCliente { get; set; }
 
         private static readonly Lazy<listUsuarios>
             lazy = new Lazy<listUsuarios>(() => new listUsuarios());
@@ -16,7 +16,7 @@ namespace Crud.Domain
         public static listUsuarios Instance { get { return lazy.Value; } }
         public listUsuarios()
         {
-            ListagemCliente = new List<Usuario>();
+            ListagemCliente = new List<DadosUsuario>();
         }
     }
 }
