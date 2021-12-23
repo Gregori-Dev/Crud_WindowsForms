@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD.UI", "CRUD\CRUD.UI.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crud.Domain", "CrudDomain\Crud.Domain.csproj", "{DBB50410-6BBE-4E7B-A1DC-9DB8B6907149}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crud.Infra", "Infra\Crud.Infra.csproj", "{597D6ACF-DA7A-487D-B6B5-9FB4E7BD85D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crud.Infra", "Infra\Crud.Infra.csproj", "{597D6ACF-DA7A-487D-B6B5-9FB4E7BD85D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCrud", "WebCrud\WebCrud.csproj", "{BE50DF2B-F222-41C9-AEFA-E47083904F34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{597D6ACF-DA7A-487D-B6B5-9FB4E7BD85D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{597D6ACF-DA7A-487D-B6B5-9FB4E7BD85D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{597D6ACF-DA7A-487D-B6B5-9FB4E7BD85D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE50DF2B-F222-41C9-AEFA-E47083904F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE50DF2B-F222-41C9-AEFA-E47083904F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE50DF2B-F222-41C9-AEFA-E47083904F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE50DF2B-F222-41C9-AEFA-E47083904F34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

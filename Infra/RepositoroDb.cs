@@ -1,13 +1,14 @@
 ﻿using Crud.Domain;
 using System;
-using CrudModel;
 using LinqToDB;
 using System.Linq;
 using LinqToDB.Common;
+using CrudModel;
+using System.Collections.Generic;
 
 namespace Crud.Infra
 {
-    class RepositoroDb : IRepositorio
+   public class RepositoroDb : IRepositorio
     {
 
 
@@ -33,32 +34,67 @@ namespace Crud.Infra
                db.Delete(x);
             }
         }
-        public object ExibirTodos(DadosUsuario dadosUsuario)
+          public  List<DadosUsuario> ExibirTodos()
         {
-             
-                using (var db = new CrudDB())
-                {
-                    var query = from p in db.dadosUsuarios
-                                where p.IdClientes > -1
-                                orderby p.NomeClientes descending
-                                select p;
-                    return query.ToList();
-                }
-            
+
+            using (var db = new CrudDB())
+            {
+                var query = from p in db.dadosUsuarios
+                            where p.IdClientes > -1
+                            orderby p.IdClientes descending
+                            select p;
+                return query.ToList();
+            }
+
         }
 
-            public void Update(DadosUsuario dadosUsuario, int idProcura)
+        public DadosUsuario ExibirUsuario(int id)
+        {
+            DadosUsuario dadosUsuario = null;
+
+
+            /* using (var db = new CrudDB())
+             {
+
+                 foreach (var busca  in db.dadosUsuarios.ToList())
+                 {
+                     dadosUsuario = new DadosUsuario();
+                     if (id == dadosUsuario.IdClientes)
+                     {
+
+                         dadosUsuario.NomeClientes = busca.NomeClientes;
+                         dadosUsuario.IdadeClientes = busca.IdadeClientes;
+
+                     }
+                 }*/
+
+            using (var db = new CrudDB())
+            {
+                dadosUsuario = new DadosUsuario();
+                var query = db.dadosUsuarios
+                    .Where(c => c.IdClientes == id).ToList();
+                foreach (var item in query.ToList())
+                {
+                    dadosUsuario.IdClientes = item.IdClientes;
+                    dadosUsuario.NomeClientes = item.NomeClientes;
+                    dadosUsuario.IdadeClientes = item.IdadeClientes.ToString();
+
+                }
+                return dadosUsuario;
+            }
+        }
+        public void Update(DadosUsuario dadosUsuario)
             {
                 using (var db = new CrudDB())
                 {
                 db.dadosUsuarios
-                .Where(p => p.IdClientes == idProcura)
+                .Where(p => p.IdClientes == dadosUsuario.IdClientes)
                 .Set(p => p.NomeClientes, dadosUsuario.NomeClientes)
                 .Set(p => p.IdadeClientes, dadosUsuario.IdadeClientes)
                 .Update();
             }
             }
-        
 
+       
     } 
 }

@@ -32,7 +32,7 @@ namespace CRUD
             if (frmC.ShowDialog()== DialogResult.OK)
             {
                 DGV_List.DataSource = null;
-                DGV_List.DataSource = Repositorio.ExibirTodos(dadosUsuario);
+                DGV_List.DataSource = Repositorio.ExibirTodos();
             }
         }
         private void Deletar_Click(object sender, EventArgs e)
@@ -48,7 +48,7 @@ namespace CRUD
                 dadosUsuario.IdClientes = Convert.ToInt32(DGV_List.CurrentRow.Cells[0].Value);
                 Repositorio.Delete(dadosUsuario);
                 DGV_List.DataSource = null;
-                DGV_List.DataSource = Repositorio.ExibirTodos(dadosUsuario);
+                DGV_List.DataSource = Repositorio.ExibirTodos();
             }
         }        
         private void detalhesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,7 +71,7 @@ namespace CRUD
             if (frmE.ShowDialog() == DialogResult.OK)
              {
                 DGV_List.DataSource = null;
-                DGV_List.DataSource = Repositorio.ExibirTodos(dadosUsuario);
+                DGV_List.DataSource = Repositorio.ExibirTodos();
             }       
         }
         private void BSair_Menu_Click(object sender, EventArgs e)

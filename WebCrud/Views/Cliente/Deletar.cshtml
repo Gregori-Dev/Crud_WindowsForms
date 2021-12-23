@@ -1,0 +1,46 @@
+﻿@model Crud.Domain.DadosUsuario
+
+@{
+    ViewData["Title"] = "Deletar";
+}
+<style>
+    h1 {
+        font-family: 'Brush Script MT', cursive;
+    }
+
+    body {
+        background-color: rgb(230, 255, 255);
+    }
+</style>
+
+    <h1>Deletar</h1>
+    <div>
+        
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                ID
+            </dt>
+            <dt class="col-sm-10">
+                @Html.DisplayFor(modelItem => modelItem.IdClientes)
+            </dt>
+            <dt class="col-sm-2">
+                Nome
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(modelItem => modelItem.NomeClientes)
+            </dd>
+            <dt class="col-sm-2">
+                Idade
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(modelItem => modelItem.IdadeClientes)
+            </dd>
+        </dl>
+
+        <form asp-action="Deletar">
+            <input type="hidden" asp-for="IdClientes" />
+            <input type="submit" value="Deletar" class="btn btn-danger" /> 
+            <a asp-action="InicioCadastro" class="btn btn-info">Retornar</a>
+        </form>
+    </div>

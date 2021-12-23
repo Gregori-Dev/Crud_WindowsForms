@@ -5,8 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="CrudModel\**" />
+    <EmbeddedResource Remove="CrudModel\**" />
+    <None Remove="CrudModel\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="linq2db.SqlServer" Version="3.6.0" />
     <PackageReference Include="linq2db.Tools" Version="3.6.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Ninject" Version="3.3.4" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
@@ -32,10 +39,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Conexão.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="CrudModel\" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,43 @@
+﻿@model Crud.Domain.DadosUsuario
+
+@{
+    ViewData["Title"] = "View";
+}
+<style>
+    h1 {
+        font-family: 'Brush Script MT', cursive;
+    }
+
+    body {
+        background-color: rgb(230, 255, 255);
+    }
+</style>
+<h1>Editar</h1>
+
+
+    <div>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Editar">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="IdClientes" />
+                    <div class="form-group">
+                        <label> Nome </label>
+                        <input asp-for="NomeClientes" class="form-control" />
+                        <span asp-validation-for="NomeClientes" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Idade</label>
+                        <input asp-for="IdadeClientes" class="form-control" />
+                        <span asp-validation-for="IdadeClientes" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Editar" class="btn btn-primary" />
+                        <a asp-action="InicioCadastro" class="btn btn-info">Retornar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+    </div>

@@ -22,11 +22,6 @@ namespace CRUD
 
             InitializeComponent();
 
-            if (nome != String.Empty)
-            {
-                TbNome.Text = nome;
-                TbIdade.Text = idade;
-            }
         }
         public bool KeyEdit;
         private void BtLimpar_Click(object sender, EventArgs e)
@@ -77,19 +72,18 @@ namespace CRUD
                 dadosUsuario.NomeClientes = TbNome.Text;
                 dadosUsuario.IdClientes = id;
 
-                Repositorio.Update(dadosUsuario, idProcura);
+                Repositorio.Update(dadosUsuario);
                 DialogResult = DialogResult.OK;
                 }
             }
         private void FormCadastro_Load(object sender, EventArgs e)
         {
              id = dadosUsuario.IdClientes;
-             nome = dadosUsuario.NomeClientes;
-             idade = dadosUsuario.IdadeClientes;
-            if (nome != String.Empty)
+             
+            if (dadosUsuario.NomeClientes != String.Empty)
             {
-                TbNome.Text = nome;
-                TbIdade.Text = idade;
+                TbNome.Text = dadosUsuario.NomeClientes;
+                TbIdade.Text = dadosUsuario.IdadeClientes;
             }
         }
     }       

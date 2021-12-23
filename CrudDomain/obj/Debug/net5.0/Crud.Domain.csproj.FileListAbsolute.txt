@@ -22,3 +22,15 @@ C:\Users\Gregori\source\repos\Gregori-Dev\Crud_WindowsForms\CrudDomain\obj\Debug
 C:\Users\Gregori\source\repos\Gregori-Dev\Crud_WindowsForms\CrudDomain\obj\Debug\net5.0\Crud.Domain.dll
 C:\Users\Gregori\source\repos\Gregori-Dev\Crud_WindowsForms\CrudDomain\obj\Debug\net5.0\ref\Crud.Domain.dll
 C:\Users\Gregori\source\repos\Gregori-Dev\Crud_WindowsForms\CrudDomain\obj\Debug\net5.0\Crud.Domain.pdb
+C:\Users\Gregori\Source\Repos\Crud_WindowsForms\CrudDomain\bin\Debug\net5.0\Crud.Domain.deps.json
+C:\Users\Gregori\Source\Repos\Crud_WindowsForms\CrudDomain\bin\Debug\net5.0\Crud.Domain.dll
+C:\Users\Gregori\Source\Repos\Crud_WindowsForms\CrudDomain\bin\Debug\net5.0\ref\Crud.Domain.dll
+C:\Users\Gregori\Source\Repos\Crud_WindowsForms\CrudDomain\bin\Debug\net5.0\Crud.Domain.pdb
+C:\Users\Gregori\Source\Repos\Crud_WindowsForms\CrudDomain\obj\Debug\net5.0\Crud.Domain.csproj.AssemblyReference.cache
+C:\Users\Gregori\Source\Repos\Crud_WindowsForms\CrudDomain\obj\Debug\net5.0\Crud.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gregori\Source\Repos\Crud_WindowsForms\CrudDomain\obj\Debug\net5.0\Crud.Domain.AssemblyInfoInputs.cache
+C:\Users\Gregori\Source\Repos\Crud_WindowsForms\CrudDomain\obj\Debug\net5.0\Crud.Domain.AssemblyInfo.cs
+C:\Users\Gregori\Source\Repos\Crud_WindowsForms\CrudDomain\obj\Debug\net5.0\Crud.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Gregori\Source\Repos\Crud_WindowsForms\CrudDomain\obj\Debug\net5.0\Crud.Domain.dll
+C:\Users\Gregori\Source\Repos\Crud_WindowsForms\CrudDomain\obj\Debug\net5.0\ref\Crud.Domain.dll
+C:\Users\Gregori\Source\Repos\Crud_WindowsForms\CrudDomain\obj\Debug\net5.0\Crud.Domain.pdb
