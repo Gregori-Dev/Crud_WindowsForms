@@ -1,0 +1,7 @@
+﻿<mvc:View>
+	controllerName="sap.ui.demo.controller.ClienteController"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+
+
+</mvc:View>

@@ -9,7 +9,7 @@ namespace Crud.Infra
     {
         public override void Load()
         {
-        Bind <IRepositorio>().To<RepositorioLista>();
+        Bind <IRepositorio>().To<RepositoroDb>();
         }
         public static FormModule Create()
         {

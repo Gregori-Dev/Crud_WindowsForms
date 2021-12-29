@@ -115,6 +115,7 @@ namespace CRUD
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormMenu";
             this.Text = "Inicio";
+          
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_List)).EndInit();

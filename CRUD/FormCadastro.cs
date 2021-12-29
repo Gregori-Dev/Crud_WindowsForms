@@ -11,10 +11,8 @@ namespace CRUD
     {
         private IRepositorio Repositorio { get; set; }
         DadosUsuario dadosUsuario = new DadosUsuario();
-        int id;
-        string nome;
-        string idade;
-        
+       // int id;
+       
         public FormCadastro(IRepositorio repositorio, DadosUsuario usuario)
         {
             dadosUsuario = usuario;
@@ -66,11 +64,11 @@ namespace CRUD
             }
             else if (KeyEdit == false)
             {              
-                    int idProcura = id;
+                   // int idProcura = id;
 
                 dadosUsuario.IdadeClientes = TbIdade.Text;
                 dadosUsuario.NomeClientes = TbNome.Text;
-                dadosUsuario.IdClientes = id;
+                dadosUsuario.IdClientes = dadosUsuario.IdClientes ;
 
                 Repositorio.Update(dadosUsuario);
                 DialogResult = DialogResult.OK;
@@ -78,7 +76,7 @@ namespace CRUD
             }
         private void FormCadastro_Load(object sender, EventArgs e)
         {
-             id = dadosUsuario.IdClientes;
+           //  id = dadosUsuario.IdClientes;
              
             if (dadosUsuario.NomeClientes != String.Empty)
             {
