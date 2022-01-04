@@ -1,0 +1,61 @@
+﻿<mvc:View
+	controllerName="sap.ui.CrudSap.controller.ClienteLista"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+
+		<Table
+			id="clienteLista"
+		   headerText="{i18n>CrudTitulo}"
+		   class="sapUiResponsiveMargin"
+		   width="auto"
+			items="{dadosUsuario>/DadosUsuario}"
+		includeItemInSelection="true">
+			
+     
+			<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>ClienteTitulos}"/>
+					<ToolbarSpacer/>
+					<SearchField width="50%" search=".onFilterInvoices"/>
+				</Toolbar>
+			</headerToolbar>
+			<columns>
+				<Column
+					hAlign="End"
+					minScreenWidth="Small"
+					demandPopin="true"
+					width="4em">
+					<Text text="{i18n>ColunaId}"/>
+				</Column>
+				
+				<Column
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>ColunaNome}"/>
+				</Column>
+				<Column
+					minScreenWidth="Tablet"
+					demandPopin="false">
+					<Text text="{i18n>ColunaIdade}"/>
+				</Column>
+				<Column
+					hAlign="End">
+					<Text text="{i18n>ColunaPreco}"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem
+					type="Navigation"
+					press=".onPress">
+					<cells>
+						<ObjectIdentifier  title =" {dadosUsuario>id}"/>
+						<Text text ="{dadosUsuario>nome}"></Text>
+						<Text text ="{dadosUsuario>idade}"></Text>
+						<Link id="edit" text="Editar" press=".onEdit"/>
+						<Link text="Detalhes" press=".onDetail"/>
+						<Link text="Deletar" press=".onDelete"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+</mvc:View>

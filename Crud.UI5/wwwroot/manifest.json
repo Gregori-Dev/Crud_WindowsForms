@@ -20,7 +20,7 @@
   },
   "sap.ui5": {
     "rootView": {
-      "viewName": "sap.ui.CrudSap.view.App",
+      "viewName": "sap.ui.CrudSap.View.App",
       "type": "XML",
       "id": "app"
     },
@@ -31,18 +31,23 @@
         "sap.m": {}
       }
     },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
 
     "models": {
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "uri": "i18n/i18n.properties"
-      },
-
+      }
+    
+    },
     "routing": {
       "config": {
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
-        "viewPath": "sap.ui.CrudSap.view",
+        "viewPath": "sap.ui.CrudSap.View",
         "controlId": "app",
         "controlAggregation": "pages"
       },
@@ -51,15 +56,22 @@
           "pattern": "",
           "name": "overview",
           "target": "overview"
+        },
+        {
+          "pattern": "Crud",
+          "name": "ClienteLista",
+          "target": "ClienteLista"
         }
-       
       ],
       "targets": {
         "overview": {
           "viewId": "overview",
           "viewName": "Overview"
         },
-       
+        "detail": {
+          "viewId": "ClienteLista",
+          "viewName": "ClienteLista"
+        }
       }
     },
     "resources": {

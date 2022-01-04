@@ -3,7 +3,7 @@
     "sap/ui/model/resource/ResourceModel"
 ], function (UIComponent, ResourceModel) {
     "use strict";
-    return UIComponent.extend("sap.ui.crudCliente.Component", {
+    return UIComponent.extend("sap.ui.CrudSap.Component", {
         metadata: {
             manifest: "json"
         },
@@ -15,6 +15,7 @@
                 bundleName: "sap.ui.CrudSap.i18n.i18n"
             });
             this.setModel(i18nModel, "i18n");
+
             this.getRouter().initialize();
         }
     });

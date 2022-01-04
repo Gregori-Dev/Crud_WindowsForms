@@ -6888,11 +6888,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gregori\\Source\\Repos\\Crud_WindowsForms\\CRUD\\CRUD.UI.csproj",
+      "projectUniqueName": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CRUD\\CRUD.UI.csproj",
       "projectName": "CRUD.UI",
-      "projectPath": "C:\\Users\\Gregori\\Source\\Repos\\Crud_WindowsForms\\CRUD\\CRUD.UI.csproj",
+      "projectPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CRUD\\CRUD.UI.csproj",
       "packagesPath": "C:\\Users\\Gregori\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gregori\\Source\\Repos\\Crud_WindowsForms\\CRUD\\obj\\",
+      "outputPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CRUD\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6913,11 +6913,11 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\Users\\Gregori\\Source\\Repos\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj": {
-              "projectPath": "C:\\Users\\Gregori\\Source\\Repos\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj"
+            "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj": {
+              "projectPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj"
             },
-            "C:\\Users\\Gregori\\Source\\Repos\\Crud_WindowsForms\\Infra\\Crud.Infra.csproj": {
-              "projectPath": "C:\\Users\\Gregori\\Source\\Repos\\Crud_WindowsForms\\Infra\\Crud.Infra.csproj"
+            "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\Infra\\Crud.Infra.csproj": {
+              "projectPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\Infra\\Crud.Infra.csproj"
             }
           }
         }

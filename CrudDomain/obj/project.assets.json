@@ -4125,11 +4125,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gregori\\Source\\Repos\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj",
       "projectName": "Crud.Domain",
-      "projectPath": "C:\\Users\\Gregori\\Source\\Repos\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj",
+      "projectPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj",
       "packagesPath": "C:\\Users\\Gregori\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gregori\\Source\\Repos\\Crud_WindowsForms\\CrudDomain\\obj\\",
+      "outputPath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CrudDomain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

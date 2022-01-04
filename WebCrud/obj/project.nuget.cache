@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k0LIFMFrAFeNbs722spwV4dcNnjZry+akocPIQ9O365IZrZfn4ps4e1Zm+Qnv2GhCqLzdd9DMn2jPQzMzjEY8w==",
+  "dgSpecHash": "0Y6CHegfJ31gtrLHyafY3dOYiNvoGvfQ3lXi/BkohDVzeFZw+8ZMbBsSXsorkBaLz9/OnF39BB9Yd3wsNU43iA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gregori\\Source\\Repos\\Crud_WindowsForms\\WebCrud\\WebCrud.csproj",
+  "projectFilePath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\WebCrud\\WebCrud.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gregori\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Gregori\\.nuget\\packages\\linq2db\\3.6.0\\linq2db.3.6.0.nupkg.sha512",

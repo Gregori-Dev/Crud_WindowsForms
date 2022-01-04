@@ -51,23 +51,6 @@ namespace Crud.Infra
         public DadosUsuario ExibirUsuario(int id)
         {
             DadosUsuario dadosUsuario = null;
-
-
-            /* using (var db = new CrudDB())
-             {
-
-                 foreach (var busca  in db.dadosUsuarios.ToList())
-                 {
-                     dadosUsuario = new DadosUsuario();
-                     if (id == dadosUsuario.IdClientes)
-                     {
-
-                         dadosUsuario.NomeClientes = busca.NomeClientes;
-                         dadosUsuario.IdadeClientes = busca.IdadeClientes;
-
-                     }
-                 }*/
-
             using (var db = new CrudDB())
             {
                 dadosUsuario = new DadosUsuario();

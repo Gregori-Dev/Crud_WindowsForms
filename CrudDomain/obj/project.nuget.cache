@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tjUrLlGZVh9sTjxtFSRUL6xuOITrTu86PHvnu9P2qs6DQ2dMrwJ18iJqWg83uMk0S8PbOVbZXNZYwbWubNHDSg==",
+  "dgSpecHash": "wDbQx8DW7KBo0jhittboy5IysaO2HgchxRsdzoB0ahc7c4ON3QQpDu6hSgZ6UYGVIlzk1bM9mtWOODGp1sTaZQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gregori\\Source\\Repos\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Gregori\\Source\\Repos\\Gregori-Dev\\Crud_WindowsForms\\CrudDomain\\Crud.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gregori\\.nuget\\packages\\linq2db\\3.6.0\\linq2db.3.6.0.nupkg.sha512",
     "C:\\Users\\Gregori\\.nuget\\packages\\linq2db.sqlserver\\3.6.0\\linq2db.sqlserver.3.6.0.nupkg.sha512",
