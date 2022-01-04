@@ -1,5 +1,5 @@
 ﻿<mvc:View
-   controllerName="sap.ui.crudCliente.Controller.App"
+   controllerName="sap.ui.CrudSap.Controller.App"
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc"
    displayBlock="true">

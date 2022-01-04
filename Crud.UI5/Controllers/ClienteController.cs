@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebCrud.Controllers
 {
+    [Route("api/[controller]")]
     public class ClienteController : Controller
     {
         private readonly IRepositorio repositorio;
@@ -16,64 +17,52 @@ namespace WebCrud.Controllers
             repositorio = _repositorio;
         }
         [HttpGet]
-        public IActionResult Cadastrar()
+        [Route("ExibirUsuario")]
+        public IActionResult ExibirUsuario(int id)
         {
-            return View();
+            var unicoUsuario = repositorio.ExibirUsuario(id);
+            return Ok(unicoUsuario);
         }
-        [HttpGet]
-        public IActionResult Deletar(int id)
-        {
-           
-            DadosUsuario dadosUsuario = repositorio.ExibirUsuario(id);
-            
-            return View(dadosUsuario);
-        }
-        [HttpGet]
-        public IActionResult Editar(int id)
-        {
-            DadosUsuario dadosUsuario = repositorio.ExibirUsuario(id);
 
-            return View(dadosUsuario);
-        }
         [HttpGet]
-        public IActionResult InicioCadastro()
+        [Route("Inicio")]
+        public IActionResult Inicio()
         {
             var retorno = repositorio.ExibirTodos();
-            return View (retorno.ToList());
+            return  Ok(retorno);
             
         }
-
-
-
-
         [HttpPost]
+        [Route("Cadastrar")]
         public  IActionResult Cadastrar(DadosUsuario dadosUsuario)
         {
             if (ModelState.IsValid)
             {
                 repositorio.Adicionar(dadosUsuario);
-                return RedirectToAction(nameof(InicioCadastro));
+                return RedirectToAction(nameof(Inicio));
 
             }
             return View(dadosUsuario);
         }
         [HttpPost]
+        [Route("Deletar")]
         public ActionResult Deletar(DadosUsuario dadosUsuario,int id)
         {
             if (ModelState.IsValid)
             {
                 repositorio.Delete(dadosUsuario);
-                return RedirectToAction(nameof(InicioCadastro));
+                return RedirectToAction(nameof(Inicio));
             }
             return View(dadosUsuario);
         }
         [HttpPost]
+        [Route("Editar")]
         public IActionResult Editar(DadosUsuario dadosUsuario)
         {
             if (ModelState.IsValid)
             {
                 repositorio.Update(dadosUsuario);
-                return RedirectToAction(nameof(InicioCadastro));
+                return RedirectToAction(nameof(Inicio));
             }
             return View(dadosUsuario);
         }

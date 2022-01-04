@@ -1,3 +1,5 @@
+using Crud.Infra;
+using LinqToDB.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -13,6 +15,7 @@ namespace Crud.UI5
     {
         public static void Main(string[] args)
         {
+            DataConnection.DefaultSettings = new MySettings();
             CreateHostBuilder(args).Build().Run();
         }
 
