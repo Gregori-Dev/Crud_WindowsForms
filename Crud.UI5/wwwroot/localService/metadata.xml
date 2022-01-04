@@ -19,7 +19,7 @@
 		<Schema Namespace="ODataWebV2.DadosUsuario.Model" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
 			<EntityContainer Name="NorthwindEntities" m:IsDefaultEntityContainer="true" p6:LazyLoadingEnabled="true"
 					xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-				<EntitySet Name="Cliente" EntityType="NorthwindModel.Cliente"/>
+				<EntitySet Name="DadosUsuario" EntityType="NorthwindModel.DadosUsuario"/>
 			</EntityContainer>
 		</Schema>
 	</edmx:DataServices>

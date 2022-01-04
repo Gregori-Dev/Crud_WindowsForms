@@ -8,7 +8,7 @@
 		   headerText="{i18n>CrudTitulo}"
 		   class="sapUiResponsiveMargin"
 		   width="auto"
-			items="{dadosUsuario>/DadosUsuario}"
+			items="{dados>/DadosUsuarios}"
 		includeItemInSelection="true">
 			
      
@@ -48,11 +48,11 @@
 					type="Navigation"
 					press=".onPress">
 					<cells>
-						<ObjectIdentifier  title =" {dadosUsuario>id}"/>
-						<Text text ="{dadosUsuario>nome}"></Text>
-						<Text text ="{dadosUsuario>idade}"></Text>
+						<ObjectIdentifier  title =" {dados>idClientes}"/>
+						<Text text ="{dados>nomeClientes}"></Text>
+						<Text text ="{dados>idadeClientes}"></Text>
+						
 						<Link id="edit" text="Editar" press=".onEdit"/>
-						<Link text="Detalhes" press=".onDetail"/>
 						<Link text="Deletar" press=".onDelete"/>
 					</cells>
 				</ColumnListItem>
