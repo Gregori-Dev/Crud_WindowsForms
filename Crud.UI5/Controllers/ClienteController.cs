@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Crud.Domain;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
 
 namespace WebCrud.Controllers
 {
@@ -28,8 +30,8 @@ namespace WebCrud.Controllers
         [Route("Inicio")]
         public IActionResult Inicio()
         {
-            var retorno = repositorio.ExibirTodos();
-            return  Ok(retorno);
+            var dados = repositorio.ExibirTodos();
+            return  Ok(dados);
             
         }
         [HttpPost]
