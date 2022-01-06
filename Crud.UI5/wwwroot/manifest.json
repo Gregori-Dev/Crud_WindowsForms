@@ -58,9 +58,14 @@
           "target": "overview"
         },
         {
-          "pattern": "Crud",
+          "pattern": "ClienteLista",
           "name": "ClienteLista",
           "target": "ClienteLista"
+        },
+        {
+          "pattern": "edit/{data}",
+          "name": "edit",
+          "target": "edit"
         }
       ],
       "targets": {
@@ -68,9 +73,17 @@
           "viewId": "overview",
           "viewName": "Overview"
         },
-        "detail": {
+        "Crudlista": {
           "viewId": "ClienteLista",
           "viewName": "ClienteLista"
+        },
+        "create": {
+          "viewId": "create",
+          "viewName": "Create"
+        },
+        "edit": {
+          "viewId": "edit",
+          "viewName": "edit"
         }
       }
     },

@@ -10,9 +10,7 @@ namespace Crud.Infra
 {
    public class RepositoroDb : IRepositorio
     {
-
-
-        public void Adicionar(DadosUsuario dadosUsuarios)
+            public void Adicionar(DadosUsuario dadosUsuarios)
         {
             using (var db = new CrudDB())
             {
