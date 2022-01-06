@@ -13,12 +13,13 @@ namespace WebCrud.Controllers
     public class ClienteController : Controller
     {
         private readonly IRepositorio repositorio;
-
+        public DadosUsuario dadosUsuario;
         public ClienteController(IRepositorio _repositorio)
-        {            
+        {
             repositorio = _repositorio;
+            DadosUsuario dadosUsuario = new();
         }
-        [HttpGet]
+        [HttpGet("{id}")]
         [Route("ExibirUsuario")]
         public IActionResult ExibirUsuario(int id)
         {
@@ -44,7 +45,7 @@ namespace WebCrud.Controllers
                 return RedirectToAction(nameof(Inicio));
 
             }
-            return View(dadosUsuario);
+            return Ok(dadosUsuario);
         }
         [HttpPost]
         [Route("Deletar")]
@@ -55,18 +56,15 @@ namespace WebCrud.Controllers
                 repositorio.Delete(dadosUsuario);
                 return RedirectToAction(nameof(Inicio));
             }
-            return View(dadosUsuario);
+            return Ok(dadosUsuario);
         }
-        [HttpPost]
-        [Route("Editar")]
-        public IActionResult Editar(DadosUsuario dadosUsuario)
+        [HttpPut]
+       
+        public async Task<IActionResult> Editar([FromBody] DadosUsuario dadosUsuario)
         {
-            if (ModelState.IsValid)
-            {
-                repositorio.Update(dadosUsuario);
-                return RedirectToAction(nameof(Inicio));
-            }
-            return View(dadosUsuario);
+            
+            repositorio.Update(dadosUsuario);          
+            return Ok(dadosUsuario);
         }
         
         

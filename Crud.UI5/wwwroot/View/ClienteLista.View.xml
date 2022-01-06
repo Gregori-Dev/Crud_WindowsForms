@@ -8,7 +8,7 @@
 		   headerText="{i18n>CrudTitulo}"
 		   class="sapUiResponsiveMargin"
 		   width="auto"
-			items="{dados>/DadosUsuarios}"
+			items="{dadosUsuario>/DadosUsuarios}"
 		includeItemInSelection="true">
 			
      
@@ -16,7 +16,12 @@
 				<Toolbar>
 					<Title text="{i18n>ClienteTitulos}"/>
 					<ToolbarSpacer/>
-					<SearchField width="50%" search=".onFilterInvoices"/>
+					<SearchField
+					width="50%"
+					search=".onFilterInvoices"
+					ariaLabelledBy="searchFieldLabel"
+					ariaDescribedBy="searchFieldDescription"
+					placeholder="{i18n>searchFieldPlaceholder}"/>
 				</Toolbar>
 			</headerToolbar>
 			<columns>
@@ -48,9 +53,9 @@
 					type="Navigation"
 					press=".onPress">
 					<cells>
-						<ObjectIdentifier  title =" {dados>idClientes}"/>
-						<Text text ="{dados>nomeClientes}"></Text>
-						<Text text ="{dados>idadeClientes}"></Text>
+						<ObjectIdentifier  title =" {dadosUsuario>idClientes}"/>
+						<Text text ="{dadosUsuario>nomeClientes}"></Text>
+						<Text text ="{dadosUsuario>idadeClientes}"></Text>
 						
 						<Link id="edit" text="Editar" press=".onEdit"/>
 						<Link text="Deletar" press=".onDelete"/>
