@@ -43,10 +43,18 @@
 					demandPopin="false">
 					<Text text="{i18n>ColunaIdade}"/>
 				</Column>
+				
 				<Column
 					hAlign="End">
-					<Text text="{i18n>ColunaPreco}"/>
 				</Column>
+			<Column></Column>
+            <Column ></Column>
+            <Column>
+                <Button
+					icon="sap-icon://add"
+					id="cadastrar"
+                    press=".onCreate"/>
+            </Column>
 			</columns>
 			<items>
 				<ColumnListItem
@@ -61,6 +69,7 @@
 						<Link text="Deletar" press=".onDelete"/>
 					</cells>
 				</ColumnListItem>
-			</items>
+							
+		</items>
 		</Table>
 </mvc:View>
