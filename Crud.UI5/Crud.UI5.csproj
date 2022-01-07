@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\Controller\testecadastrar.controller.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CrudDomain\Crud.Domain.csproj" />
     <ProjectReference Include="..\Infra\Crud.Infra.csproj" />
   </ItemGroup>

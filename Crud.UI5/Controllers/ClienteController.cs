@@ -37,14 +37,9 @@ namespace WebCrud.Controllers
         }
         [HttpPost]
         [Route("Cadastrar")]
-        public  IActionResult Cadastrar(DadosUsuario dadosUsuario)
+        public async Task<IActionResult> Cadastrar( DadosUsuario dadosUsuario)
         {
-            if (ModelState.IsValid)
-            {
-                repositorio.Adicionar(dadosUsuario);
-                return RedirectToAction(nameof(Inicio));
-
-            }
+              repositorio.Adicionar(dadosUsuario);
             return Ok(dadosUsuario);
         }
         [HttpPost]

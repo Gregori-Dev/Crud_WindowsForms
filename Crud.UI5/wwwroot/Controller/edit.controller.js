@@ -1,21 +1,23 @@
 ﻿sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
-
-], function (Controller, JSONModel) {
+	"sap/m/MessageBox",
+	"sap/ui/core/routing/History",
+], function (Controller, JSONModel, MessageBox, History) {
 	"use strict";
 
 	return Controller.extend("sap.ui.CrudSap.Controller.edit", {
 		onInit: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
-			oRouter.getRoute("edit").attachPatternMatched(this.fetchTeste, this);
+			oRouter.getRoute("edit").attachPatternMatched(this.RotaAtualizar, this);
+			oRouter.getRoute("cadastrar").attachPatternMatched(this.RotaCadastrar, this);
 		},
 		getDadosUsuarioModel: function () {
 			return this.getView().getModel("dadosUsuario").getData();
 
 		},
 
-		fetchTeste: async function (oEvent) {
+		RotaAtualizar: async function (oEvent) {
 			window.tela = this;
 			this.Id = oEvent.getParameter("arguments").data
 			data: { id: this.Id };
@@ -25,43 +27,74 @@
 			const jsonModel = new JSONModel(dadosUsuario)
 			this.getView().setModel(jsonModel, "dadosUsuario")
 			console.log(dadosUsuario);
-
-			//_onObjectMatched: async function (oEvent) {
-			//	this.Codigo = oEvent.getParameter("arguments").id;
-
-			//	const dados = await fetch(/api/Cliente / ${ this.Codigo });
-			//	const cliente = await dados.json();
-			//	const oModel = new JSONModel(cliente);
-			//	this.getView().setModel(oModel, "cliente");
-
-			//},
 		},
+		RotaCadastrar: async function (oEvent) {
+			var oModel = new JSONModel()
+			this.getView().setModel(oModel, "dadosUsuario");
+
+        },
+
 		onAlterarClient: async function () {
 			let dadosUsuario = this.verificaSeOsCamposEstaoVazios(this.getDadosUsuarioModel());
-			const uri = await fetch('/api/Cliente', {
-				method: 'PUT',
-				headers: {
-					'Accept': 'application/json',
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(dadosUsuario)
-			});
-			console.log(dadosUsuario);
-			const content = await uri.json();
-			var oRouter = this.getOwnerComponent().getRouter();
-			MessageBox.alert("Cliente alterado com sucesso!", {
-				onClose: function () {
-					oRouter.navTo("clienteLista", {}, true);
+			if (dadosUsuario.idClientes == null) {
+
+				const uri = await fetch('https://localhost:44364/api/Cliente/cadastrar', {
+					method: 'POST',
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json'
+
+					},
+
+					body: JSON.stringify(dadosUsuario)
+
+				});
+				console.log(dadosUsuario)
+				const content = await uri.json();
+				var oRouter = this.getOwnerComponent().getRouter();
+				MessageBox.alert("Cliente cadastrado com sucesso!", {
+					onClose: function () {
+						oRouter.navTo("overview", {}, true);
+					}
+				});
+			}else {
+				const uri = await fetch('/api/Cliente', {
+					method: 'PUT',
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(dadosUsuario)
+				});
+				const content = await uri.json();
+				var oRouter = this.getOwnerComponent().getRouter();
+				MessageBox.alert("Cliente alterado com sucesso!", {
+					onClose: function () {
+						oRouter.navTo("overview", {}, true);
+					}
+				});
+
 				}
-			});
 		},
 		verificaSeOsCamposEstaoVazios: function (ModelDados) {
 			let dadosUsuario = ModelDados;
-			if (dadosUsuario.nomeClientes == null
-				|| dadosUsuario.idadeClientes == null
-			) {
-				
-				return null;
+			var validaNome = /[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/
+
+			if (dadosUsuario.nomeClientes == "" || !validaNome.test(dadosUsuario.nomeClientes)) {
+				MessageBox.show("O nome não pode ficar em branco e NÃO deve conter números", {
+					icon: MessageBox.Icon.ERROR,
+					title: "Erro"
+				})
+				this.getView().byId("dadosUsuario.nomeClientes").setValueState(sap.ui.core.ValueState.Error);
+			}
+
+			else if (dadosUsuario.idadeClientes == "" || dadosUsuario.idadeClientes <= 0 ||
+				dadosUsuario.idadeClientes > 122) {
+				MessageBox.show("Insira uma idade válida", {
+					icon: MessageBox.Icon.ERROR,
+					title: "Erro"
+				})
+				this.getView().byId("dadosUsuario.idadeClientes").setValueState(sap.ui.core.ValueState.Error);
 			}
 			else {
 
@@ -69,38 +102,22 @@
 			}
 
 		},
-		onAddClient: function (oEvent) {
-			var id = this.getView().byId("inId").getValue();
-			var nome = this.getView().byId("inNome").getValue();
-			var idade = this.getView().byId("inIdade").getValue();
+		onNavBack: function () {
+			var oHistory = History.getInstance();
+			var sPreviousHash = oHistory.getPreviousHash();
 
-			var validaNome = /[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/
+			if (sPreviousHash !== undefined) {
+				window.history.go(-1);
+			} else {
+				var oRouter = this.getOwnerComponent().getRouter();
+				oRouter.navTo("overview", {}, true);
 
-			if (nome == "" || !validaNome.test(nome)) {
-				MessageBox.show("O nome não pode ficar em branco e NÃO deve conter números", {
-					icon: MessageBox.Icon.ERROR,
-					title: "Erro"
-				})
-				this.getView().byId("inNome").setValueState(sap.ui.core.ValueState.Error);
 			}
 
-			else if (idade == "" || idade <= 0 || idade > 122) {
-				MessageBox.show("Insira uma idade válida", {
-					icon: MessageBox.Icon.ERROR,
-					title: "Erro"
-				})
-				this.getView().byId("inIdade").setValueState(sap.ui.core.ValueState.Error);
-			}
-			else {
-				var dados = {
-					idClientes: id,
-					nomeClientes: nome,
-					idadeClientes: idade
-				}
-			}
+
 		},
-	
-		//_onRouteMatched: function (oEvent) {
+
+    	//_onRouteMatched: function (oEvent) {
 		//	var oArgs, sEmployeeID;
 		//	oArgs = oEvent.getParameter("arguments");
 		//	sEmployeeID = oArgs.EmployeeID;

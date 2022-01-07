@@ -66,6 +66,11 @@
           "pattern": "edit/{data}",
           "name": "edit",
           "target": "edit"
+        },
+        {
+          "pattern": "cadastrar",
+          "name": "cadastrar",
+          "target": "edit"
         }
       ],
       "targets": {
@@ -77,10 +82,7 @@
           "viewId": "ClienteLista",
           "viewName": "ClienteLista"
         },
-        "create": {
-          "viewId": "create",
-          "viewName": "Create"
-        },
+      
         "edit": {
           "viewId": "edit",
           "viewName": "edit"

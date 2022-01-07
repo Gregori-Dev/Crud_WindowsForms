@@ -35,7 +35,7 @@
                     icon="sap-icon://save"
                     text="{i18n>BtnSalvar}"
                     press=".onAlterarClient"/>
-			
+					
 
 		</Panel>
 	</Page>

@@ -9,11 +9,11 @@
 	return Controller.extend("sap.ui.CrudSap.Controller.clienteLista", {
 		onInit: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
-			oRouter.getRoute("overview").attachPatternMatched(this.fetchTeste, this);
+			oRouter.getRoute("overview").attachPatternMatched(this.RotaLista, this);
 		},
 		
 
-		fetchTeste: async function () {
+		RotaLista: async function () {
 		
 			const DadosUsuarios = await fetch(`/api/Cliente/Inicio`);
 			const dadosUsuario = await DadosUsuarios.json()
@@ -45,6 +45,10 @@
 			});
 			//codigo: window.encodeURIComponent(oItem.getBindingContext("cliente").getProperty("codigo"))
 		},
-
+		onCreate: function () {;
+			var oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo("cadastrar")
+        },
+	
 	});
 });
