@@ -37,20 +37,17 @@ namespace WebCrud.Controllers
         }
         [HttpPost]
         [Route("Cadastrar")]
-        public async Task<IActionResult> Cadastrar( DadosUsuario dadosUsuario)
+        public async Task<IActionResult> Cadastrar([FromBody] DadosUsuario dadosUsuario)
         {
               repositorio.Adicionar(dadosUsuario);
             return Ok(dadosUsuario);
         }
-        [HttpPost]
-        [Route("Deletar")]
-        public ActionResult Deletar(DadosUsuario dadosUsuario,int id)
+        [HttpDelete("{dadosUsuario}")]
+        [Route("Delete")]
+        public async Task<IActionResult> Deletar([FromBody]  DadosUsuario dadosUsuario)
         {
-            if (ModelState.IsValid)
-            {
-                repositorio.Delete(dadosUsuario);
-                return RedirectToAction(nameof(Inicio));
-            }
+
+            repositorio.Delete(dadosUsuario);
             return Ok(dadosUsuario);
         }
         [HttpPut]
