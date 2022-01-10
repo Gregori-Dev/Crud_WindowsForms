@@ -11,6 +11,10 @@
 			var oRouter = this.getOwnerComponent().getRouter();
 			oRouter.getRoute("overview").attachPatternMatched(this.RotaLista, this);
 		},
+		getDadosUsuarioModel: function () {
+			return this.getView().getModel("dadosUsuario").getData();
+
+		},
 		
 
 		RotaLista: async function () {
@@ -23,14 +27,12 @@
 		},
 		onFilterInvoices: function (oEvent) {
 
-			// build filter array
 			var aFilter = [];
 			var sQuery = oEvent.getParameter("query");
 			if (sQuery) {
 				aFilter.push(new Filter("nomeClientes", FilterOperator.Contains, sQuery));
 			}
 
-			// filter binding
 			var oList = this.byId("clienteLista");
 			var oBinding = oList.getBinding("items");
 			oBinding.filter(aFilter);
@@ -43,12 +45,20 @@
 			oRouter.navTo("edit", {
 				data : IdView
 			});
-			//codigo: window.encodeURIComponent(oItem.getBindingContext("cliente").getProperty("codigo"))
 		},
 		onCreate: function () {;
 			var oRouter = this.getOwnerComponent().getRouter();
 			oRouter.navTo("cadastrar")
-        },
-	
+		},
+		onDelete: function (oEvent) {
+			var bindingContext = oEvent.getSource().getBindingContext("dadosUsuario");
+			var selectedDados = bindingContext.getObject();
+			var IdView = selectedDados.idClientes;
+			var oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo("delete", {
+				data: IdView
+			});
+
+      },
 	});
 });

@@ -47,12 +47,12 @@
 				<Column
 					hAlign="End">
 				</Column>
-			<Column></Column>
-            <Column ></Column>
+			
             <Column>
-                <Button
+                <Button text="Cadastrar"
 					icon="sap-icon://add"
 					id="cadastrar"
+					type="Accept"
                     press=".onCreate"/>
             </Column>
 			</columns>
@@ -65,8 +65,22 @@
 						<Text text ="{dadosUsuario>nomeClientes}"></Text>
 						<Text text ="{dadosUsuario>idadeClientes}"></Text>
 						
-						<Link id="edit" text="Editar" press=".onEdit"/>
-						<Link text="Deletar" press=".onDelete"/>
+						<Button id="edit"
+							  text="Editar" 
+							  press=".onEdit"
+							  type="Emphasized"
+							  icon="sap-icon://save">
+						</Button>
+						
+						<Button text="Remover"
+										press=".onDelete"
+									    type="Negative"
+										class="ButtonDecente2"
+										ariaDescribedBy="defaultButtonDescription genericButtonDescription"
+										icon="sap-icon://delete"
+										width="124px">
+						</Button>
+							
 					</cells>
 				</ColumnListItem>
 							

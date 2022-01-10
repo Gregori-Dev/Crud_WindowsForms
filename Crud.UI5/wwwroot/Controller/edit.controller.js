@@ -12,13 +12,12 @@
 			oRouter.getRoute("edit").attachPatternMatched(this.RotaAtualizar, this);
 			oRouter.getRoute("cadastrar").attachPatternMatched(this.RotaCadastrar, this);
 		},
+
 		getDadosUsuarioModel: function () {
 			return this.getView().getModel("dadosUsuario").getData();
-
 		},
 
 		RotaAtualizar: async function (oEvent) {
-			window.tela = this;
 			this.Id = oEvent.getParameter("arguments").data
 			data: { id: this.Id };
 
@@ -28,11 +27,11 @@
 			this.getView().setModel(jsonModel, "dadosUsuario")
 			console.log(dadosUsuario);
 		},
+
 		RotaCadastrar: async function (oEvent) {
 			var oModel = new JSONModel()
 			this.getView().setModel(oModel, "dadosUsuario");
-
-        },
+		},
 
 		onAlterarClient: async function () {
 			let dadosUsuario = this.verificaSeOsCamposEstaoVazios(this.getDadosUsuarioModel());
@@ -43,14 +42,11 @@
 					headers: {
 						'Accept': 'application/json',
 						'Content-Type': 'application/json'
-
-					},
-
+							},
 					body: JSON.stringify(dadosUsuario)
-
 				});
-				console.log(dadosUsuario)
-				const content = await uri.json();
+				//console.log(dadosUsuario)
+		//		const content = await uri.json();
 				var oRouter = this.getOwnerComponent().getRouter();
 				MessageBox.alert("Cliente cadastrado com sucesso!", {
 					onClose: function () {
@@ -66,6 +62,7 @@
 					},
 					body: JSON.stringify(dadosUsuario)
 				});
+
 				const content = await uri.json();
 				var oRouter = this.getOwnerComponent().getRouter();
 				MessageBox.alert("Cliente alterado com sucesso!", {
@@ -78,9 +75,9 @@
 		},
 		verificaSeOsCamposEstaoVazios: function (ModelDados) {
 			let dadosUsuario = ModelDados;
-			var validaNome = /[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/
+			var validaNome = /[^a-zà-ú]/gi;
 
-			if (dadosUsuario.nomeClientes == "" || !validaNome.test(dadosUsuario.nomeClientes)) {
+			if (dadosUsuario.nomeClientes == "" || validaNome.test(dadosUsuario.nomeClientes)) {
 				MessageBox.show("O nome não pode ficar em branco e NÃO deve conter números", {
 					icon: MessageBox.Icon.ERROR,
 					title: "Erro"
@@ -97,10 +94,8 @@
 				this.getView().byId("dadosUsuario.idadeClientes").setValueState(sap.ui.core.ValueState.Error);
 			}
 			else {
-
 				return ModelDados;
 			}
-
 		},
 		onNavBack: function () {
 			var oHistory = History.getInstance();
@@ -111,19 +106,7 @@
 			} else {
 				var oRouter = this.getOwnerComponent().getRouter();
 				oRouter.navTo("overview", {}, true);
-
 			}
-
-
 		},
-
-    	//_onRouteMatched: function (oEvent) {
-		//	var oArgs, sEmployeeID;
-		//	oArgs = oEvent.getParameter("arguments");
-		//	sEmployeeID = oArgs.EmployeeID;
-		//	this.sPath = "/DadosUsuario('" + sEmployeeID + "')";
-		//	this.oView.byId("IdPage").bindElement(this.sPath);
-		//	 this._fetchJSONData(sProductPath);
-		//},
-			})
+	})
 });

@@ -58,7 +58,7 @@ namespace WebCrud.Controllers
             return View(dadosUsuario);
         }
         [HttpPost]
-        public ActionResult Deletar(DadosUsuario dadosUsuario,int id)
+        public ActionResult Deletar(DadosUsuario dadosUsuario)
         {
             if (ModelState.IsValid)
             {

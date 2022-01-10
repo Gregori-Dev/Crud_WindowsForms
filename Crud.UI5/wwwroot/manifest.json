@@ -71,6 +71,11 @@
           "pattern": "cadastrar",
           "name": "cadastrar",
           "target": "edit"
+        },
+        {
+          "pattern": "delete/{data}",
+          "name": "delete",
+          "target": "delete"
         }
       ],
       "targets": {
@@ -82,11 +87,17 @@
           "viewId": "ClienteLista",
           "viewName": "ClienteLista"
         },
-      
+
         "edit": {
           "viewId": "edit",
           "viewName": "edit"
+        },
+        "delete": {
+          "viewId": "delete",
+          "viewName": "delete"
         }
+
+
       }
     },
     "resources": {
