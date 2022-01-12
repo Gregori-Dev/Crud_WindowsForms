@@ -63,6 +63,12 @@
           "target": "ClienteLista"
         },
         {
+          "pattern": "detalhes/{data}",
+          "name": "detalhes",
+          "target": "detalhes"
+        },
+
+        {
           "pattern": "edit/{data}",
           "name": "edit",
           "target": "edit"
@@ -71,11 +77,6 @@
           "pattern": "cadastrar",
           "name": "cadastrar",
           "target": "edit"
-        },
-        {
-          "pattern": "delete/{data}",
-          "name": "delete",
-          "target": "delete"
         }
       ],
       "targets": {
@@ -88,14 +89,15 @@
           "viewName": "ClienteLista"
         },
 
+        "detalhes": {
+          "viewId": "detalhes",
+          "viewName": "detalhes"
+        },
         "edit": {
           "viewId": "edit",
           "viewName": "edit"
-        },
-        "delete": {
-          "viewId": "delete",
-          "viewName": "delete"
         }
+
 
 
       }

@@ -22,6 +22,12 @@
 					ariaLabelledBy="searchFieldLabel"
 					ariaDescribedBy="searchFieldDescription"
 					placeholder="{i18n>searchFieldPlaceholder}"/>
+					<Button tooltip="Cadastrar"
+					icon="sap-icon://add"
+					id="cadastrar"
+					type="Accept"
+				    height="50px"
+                    press=".onCreate"/>
 				</Toolbar>
 			</headerToolbar>
 			<columns>
@@ -47,40 +53,20 @@
 				<Column
 					hAlign="End">
 				</Column>
-			
+				
             <Column>
-                <Button text="Cadastrar"
-					icon="sap-icon://add"
-					id="cadastrar"
-					type="Accept"
-                    press=".onCreate"/>
+                
             </Column>
 			</columns>
 			<items>
 				<ColumnListItem
 					type="Navigation"
-					press=".onPress">
+					press=".ondetalhes">
 					<cells>
 						<ObjectIdentifier  title =" {dadosUsuario>idClientes}"/>
 						<Text text ="{dadosUsuario>nomeClientes}"></Text>
 						<Text text ="{dadosUsuario>idadeClientes}"></Text>
-						
-						<Button id="edit"
-							  text="Editar" 
-							  press=".onEdit"
-							  type="Emphasized"
-							  icon="sap-icon://save">
-						</Button>
-						
-						<Button text="Remover"
-										press=".onDelete"
-									    type="Negative"
-										class="ButtonDecente2"
-										ariaDescribedBy="defaultButtonDescription genericButtonDescription"
-										icon="sap-icon://delete"
-										width="124px">
-						</Button>
-							
+		
 					</cells>
 				</ColumnListItem>
 							

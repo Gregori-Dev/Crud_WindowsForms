@@ -18,22 +18,35 @@
 		},
 
 		RotaAtualizar: async function (oEvent) {
-			this.Id = oEvent.getParameter("arguments").data
-			data: { id: this.Id };
+			//this.Id = oEvent.getParameter("arguments").data
+			//data: { id: this.Id };
 
-			const DadosUsuarios = await fetch(`/api/Cliente/${this.Id}`);
-			const dadosUsuario = await DadosUsuarios.json()
-			const jsonModel = new JSONModel(dadosUsuario)
-			this.getView().setModel(jsonModel, "dadosUsuario")
-			console.log(dadosUsuario);
+			//const DadosUsuarios = await fetch(`/api/Cliente/${this.Id}`);
+			//const dadosUsuario = await DadosUsuarios.json()
+			//const jsonModel = new JSONModel(dadosUsuario)
+			//this.getView().setModel(jsonModel, "dadosUsuario")
+			//console.log(dadosUsuario);
+
+			this.data = oEvent.getParameter("arguments").data;
+			const DadosUsuarios = await fetch(`/api/Cliente/${this.data}`);
+			const dadosUsuario = await DadosUsuarios.json();
+			const oModel = new JSONModel(dadosUsuario);
+			this.getView().setModel(oModel, "dadosUsuario");
+
+			if (!cliente.nome) {
+				var oRouter = this.getOwnerComponent().getRouter();
+				oRouter.navTo("listagemName", {}, true);
+			}
 		},
+		
 
 		RotaCadastrar: async function (oEvent) {
 			var oModel = new JSONModel()
 			this.getView().setModel(oModel, "dadosUsuario");
 		},
 
-		onAlterarClient: async function () {
+		onAlterarClient: async function (ModelDados) {
+		//	let dadosUsuario = ModelDados;
 			let dadosUsuario = this.verificaSeOsCamposEstaoVazios(this.getDadosUsuarioModel());
 			if (dadosUsuario.idClientes == null) {
 
@@ -42,18 +55,18 @@
 					headers: {
 						'Accept': 'application/json',
 						'Content-Type': 'application/json'
-							},
+					},
 					body: JSON.stringify(dadosUsuario)
 				});
 				//console.log(dadosUsuario)
-		//		const content = await uri.json();
+				//		const content = await uri.json();
 				var oRouter = this.getOwnerComponent().getRouter();
 				MessageBox.alert("Cliente cadastrado com sucesso!", {
 					onClose: function () {
 						oRouter.navTo("overview", {}, true);
 					}
 				});
-			}else {
+			} else {
 				const uri = await fetch('/api/Cliente', {
 					method: 'PUT',
 					headers: {
@@ -71,7 +84,7 @@
 					}
 				});
 
-				}
+			}
 		},
 		verificaSeOsCamposEstaoVazios: function (ModelDados) {
 			let dadosUsuario = ModelDados;
