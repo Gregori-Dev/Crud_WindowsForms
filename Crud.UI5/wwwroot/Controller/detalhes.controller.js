@@ -29,24 +29,35 @@
 		},
 		
 		onDeleteCliente: async function (oEvent) {
-			
-				const dadosUsuario = this.getView().getModel("dadosUsuario").getData();
-				var oRouter = this.getOwnerComponent().getRouter();
-				const uri = await fetch(`/api/Cliente/${dadosUsuario}`, {
-					method: 'DELETE',
-					headers: {
-						'Accept': 'application/json',
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify(dadosUsuario)
-				});
-				//console.log(dadosUsuario)
-				MessageBox.alert("Dados Deletado com sucesso!", {
-					onClose: function () {
-						oRouter.navTo("overview", {}, true);
+			const dadosUsuario = this.getView().getModel("dadosUsuario").getData();
+			var oRouter = this.getOwnerComponent().getRouter();
+			MessageBox.warning("Deseja realmente remover este cliente?.", {
+				actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
+				emphasizedAction: MessageBox.Action.OK,
+				onClose: async function (sAction) {
+					if (sAction === "OK") {
+						
+						const uri = await fetch(`/api/Cliente/${dadosUsuario}`, {
+							method: 'DELETE',
+							headers: {
+								'Accept': 'application/json',
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify(dadosUsuario)
+						});
+						//console.log(dadosUsuario)
+						MessageBox.alert("Dados Deletado com sucesso!", {
+							onClose: function () {
+								oRouter.navTo("overview", {}, true);
+
+							}
+						})
+							} else {
+								MessageToast.show("Operação cancelada");
 					}
-				});
-			
+				}
+
+			});
 		},
 
 		onNavBack: function () {
@@ -60,19 +71,6 @@
 			}
 		},
 		onEdit: function (oEvent) {
-			//var bindingContext = oEvent.getSource().getBindingContext("dadosUsuario");
-			//var selectedDados = bindingContext.getObject();
-			//var IdView = selectedDados.idClientes;
-			//var oRouter = this.getOwnerComponent().getRouter();
-			//oRouter.navTo("edit", {
-			//	data: IdView
-			//});
-			//var oItem = oEvent.getSource();
-			//var oRouter = this.getOwnerComponent().getRouter();
-			//var dadosUsuario = this.getView().getModel("dadosUsuario").getData();
-			//oRouter.navTo("edit", {
-			//	data: window.encodeURIComponent(dadosUsuario.data)
-			//});
 			var oRouter = this.getOwnerComponent().getRouter();
 			oRouter.navTo("edit", {
 				data: this.Id
