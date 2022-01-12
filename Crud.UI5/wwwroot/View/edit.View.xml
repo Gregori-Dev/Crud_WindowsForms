@@ -1,47 +1,55 @@
-﻿	<mvc:View
-    controllerName="sap.ui.CrudSap.Controller.edit"
-    xmlns="sap.m"
-    xmlns:form="sap.ui.layout.form"
-    xmlns:mvc="sap.ui.core.mvc">
+﻿<mvc:View
+controllerName="sap.ui.CrudSap.Controller.edit"
+xmlns="sap.m"
+xmlns:form="sap.ui.layout.form"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns:l="sap.ui.layout" height="100%">
 	<Page class="sapUiSmallMargin"
-		title="{i18n>EditarTelaTitulo}"
+		title="{i18n>CadastrarTelaTitulo}"
 		showNavButton="true"
 		navButtonPress=".onNavBack">
-		<Panel headerText="{i18n>EditarTelaTitulo}" class="sapUiResponsiveMargin" width="auto">
-			<form:SimpleForm id="inClient" editable="true" layout="ResponsiveGridLayout">
-				<Label text="Id" labelFor="id"/>
-				<Input
+		<Panel headerText="{i18n>CadastrarTela}" class="sapUiResponsiveMargin" width="auto">
+			<form:SimpleForm id="inClient" editable="false" layout="ResponsiveGridLayout">
+				
+			<Label text="Id" labelFor="id"/>
+			<Input
                     id="inId"
                     value="{dadosUsuario>/idClientes}"
                     class="sapUiSmallMarginBottom"
                     editable="false"/>
-				<Label text="Nome" labelFor="nome"/>
-				<Input
+				
+			<Label text="Nome" labelFor="nome"/>
+			<Input
 					value="{dadosUsuario>/nomeClientes}"
                     id="inNome"
                     placeholder="Nome cliente"
                     class="sapUiSmallMarginBottom"/>
-
-				<Label text="Idade" labelFor="idade" />
-				<Input
+				
+			<Label text="Idade" labelFor="idade" />
+			<Input
 					value="{dadosUsuario>/idadeClientes}"
-                    id="inIdade"
-                    type="Number"
-                    placeholder="Idade ex:21"
-                    class="sapUiSmallMarginBottom"/>
-			</form:SimpleForm>
+					id="inIdade"
+					type="Number"
+					placeholder="Idade ex:21"
+					class="sapUiSmallMarginBottom"/>
+
+			</form:SimpleForm>	
+			<l:HorizontalLayout class="sapUiContentPadding">
+				
 			<Button
 					type="Accept"
                     icon="sap-icon://save"
+					width="124px"
                     text="{i18n>BtnSalvar}"
                     press=".onAlterarClient"/>
-
 			<Button
-							type="Reject"
-							icon="sap-icon://decline"
-							text="{i18n>BtnCancel}"
-							press=".onNavBack"/>
-
+					type="Reject"
+					icon="sap-icon://decline"
+					width="124px"
+					text="{i18n>BtnCancel}"
+					press=".onNavBack"/>
+			
+				</l:HorizontalLayout>
 		</Panel>
 	</Page>
 </mvc:View>

@@ -1,0 +1,58 @@
+﻿	<mvc:View
+    controllerName="sap.ui.CrudSap.Controller.detalhes"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc">
+	<Page class="sapUiSmallMargin"
+		title="{i18n>EditarTelaTitulo}"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		<Panel headerText="{i18n>EditarTelaTitulo}" class="sapUiResponsiveMargin" width="auto">
+			<form:SimpleForm id="inClient" editable="true" layout="ResponsiveGridLayout">
+				<Label text="Id" labelFor="id"/>
+				<Input
+                    id="inId"
+                    value="{dadosUsuario>/idClientes}"
+                    class="sapUiSmallMarginBottom"
+                    editable="false"/>
+				<Label text="Nome" labelFor="nome"/>
+				<Input
+					value="{dadosUsuario>/nomeClientes}"
+                    id="inNome"
+                    placeholder="Nome cliente"
+					editable="false"
+                    class="sapUiSmallMarginBottom"/>
+
+				<Label text="Idade" labelFor="idade" />
+				<Input
+					value="{dadosUsuario>/idadeClientes}"
+                    id="inIdade"
+                    type="Number"
+                    placeholder="Idade ex:21"
+                    class="sapUiSmallMarginBottom"
+					editable="false"/>
+			</form:SimpleForm>
+			<l:HorizontalLayout class="sapUiContentPadding">
+				
+				<Button id="edit"
+					text="Editar"
+					press=".onEdit"
+					type="Accept"
+					class="ButtonDecente"
+					icon="sap-icon://save"
+					width="140px">
+				</Button>
+				
+				<Button
+					icon="sap-icon://delete"
+					type="Reject"
+					class="ButtonDecente3"
+					text="{i18n>BtnDeletar}"
+					press=".onDeleteCliente"
+					width="140px">
+				</Button>
+			</l:HorizontalLayout>
+		</Panel>
+	</Page>
+</mvc:View>

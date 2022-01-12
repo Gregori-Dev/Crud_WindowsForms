@@ -19,6 +19,7 @@ namespace WebCrud.Controllers
             repositorio = _repositorio;
             DadosUsuario dadosUsuario = new();
         }
+
         [HttpGet("{id}")]
         [Route("ExibirUsuario")]
         public IActionResult ExibirUsuario(int id)
@@ -32,33 +33,33 @@ namespace WebCrud.Controllers
         public IActionResult Inicio()
         {
             var dados = repositorio.ExibirTodos();
-            return  Ok(dados);
-            
+            return  Ok(dados);           
         }
+
         [HttpPost]
         [Route("Cadastrar")]
         public async Task<IActionResult> Cadastrar([FromBody] DadosUsuario dadosUsuario)
         {
-              repositorio.Adicionar(dadosUsuario);
+            repositorio.Adicionar(dadosUsuario);
             return Ok(dadosUsuario);
         }
+
         [HttpDelete("{dadosUsuario}")]
         [Route("Delete")]
         public async Task<IActionResult> Deletar([FromBody]  DadosUsuario dadosUsuario)
         {
-
             repositorio.Delete(dadosUsuario);
             return Ok(dadosUsuario);
         }
+
         [HttpPut]
-       
+    //    [Route("edit")]
+
         public async Task<IActionResult> Editar([FromBody] DadosUsuario dadosUsuario)
-        {
-            
+        {     
             repositorio.Update(dadosUsuario);          
             return Ok(dadosUsuario);
         }
-        
-        
+
     }
 }
