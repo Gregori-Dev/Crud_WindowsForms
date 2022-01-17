@@ -18,7 +18,7 @@
 					<ToolbarSpacer/>
 					<SearchField
 					width="50%"
-					search=".onFilterInvoices"
+					search=".emFiltroDeUsuario"
 					ariaLabelledBy="searchFieldLabel"
 					ariaDescribedBy="searchFieldDescription"
 					placeholder="{i18n>searchFieldPlaceholder}"/>
@@ -27,7 +27,7 @@
 					id="cadastrar"
 					type="Accept"
 				    height="50px"
-                    press=".onCreate"/>
+                    press=".emCadastrar"/>
 				</Toolbar>
 			</headerToolbar>
 			<columns>
@@ -61,7 +61,7 @@
 			<items>
 				<ColumnListItem
 					type="Navigation"
-					press=".ondetalhes">
+					press=".emDetalhes">
 					<cells>
 						<ObjectIdentifier  title =" {dadosUsuario>idClientes}"/>
 						<Text text ="{dadosUsuario>nomeClientes}"></Text>

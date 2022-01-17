@@ -7,7 +7,7 @@
 	<Page class="sapUiSmallMargin"
 		title="{i18n>EditarTelaTitulo}"
 		showNavButton="true"
-		navButtonPress=".onNavBack">
+		navButtonPress=".emBarraDeRetorno">
 		<Panel headerText="{i18n>EditarTelaTitulo}" class="sapUiResponsiveMargin" width="auto">
 			<form:SimpleForm id="inClient" editable="true" layout="ResponsiveGridLayout">
 				<Label text="Id" labelFor="id"/>
@@ -37,7 +37,7 @@
 				
 				<Button id="edit"
 					text="Editar"
-					press=".onEdit"
+					press=".emEditar"
 					type="Accept"
 					class="ButtonDecente"
 					icon="sap-icon://save"
@@ -49,7 +49,7 @@
 					type="Reject"
 					class="ButtonDecente3"
 					text="{i18n>BtnDeletar}"
-					press=".onDeleteCliente"
+					press=".emExcluirCliente"
 					width="140px">
 				</Button>
 			</l:HorizontalLayout>

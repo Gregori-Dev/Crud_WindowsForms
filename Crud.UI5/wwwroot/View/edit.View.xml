@@ -7,7 +7,7 @@ xmlns:l="sap.ui.layout" height="100%">
 	<Page class="sapUiSmallMargin"
 		title="{i18n>CadastrarTelaTitulo}"
 		showNavButton="true"
-		navButtonPress=".onNavBack">
+		navButtonPress=".emBarraDeRetorno">
 		<Panel headerText="{i18n>CadastrarTela}" class="sapUiResponsiveMargin" width="auto">
 			<form:SimpleForm id="inClient" editable="false" layout="ResponsiveGridLayout">
 				
@@ -41,13 +41,13 @@ xmlns:l="sap.ui.layout" height="100%">
                     icon="sap-icon://save"
 					width="124px"
                     text="{i18n>BtnSalvar}"
-                    press=".onAlterarClient"/>
+                    press=".emAlterarCliente"/>
 			<Button
 					type="Reject"
 					icon="sap-icon://decline"
 					width="124px"
 					text="{i18n>BtnCancel}"
-					press=".onNavBack"/>
+					press=".emBarraDeRetorno"/>
 			
 				</l:HorizontalLayout>
 		</Panel>

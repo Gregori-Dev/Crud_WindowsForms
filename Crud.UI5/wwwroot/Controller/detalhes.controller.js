@@ -10,14 +10,15 @@
 
 		onInit: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
-			oRouter.getRoute("detalhes").attachPatternMatched(this.RotaDetalhes, this);
+			const nomeDaRota = "detalhes"
+			oRouter.getRoute(nomeDaRota).attachPatternMatched(this.aoCoincidirComARotaDeDetalhes, this);
 		},
-
-		getDadosUsuarioModel: function () {
+		
+		receberDadosUsuarioDaModelo: function () {
 			return this.getView().getModel("dadosUsuario").getData();
 		},
 
-		RotaDetalhes: async function (oEvent) {
+		aoCoincidirComARotaDeDetalhes: async function (oEvent) {
 			this.Id = oEvent.getParameter("arguments").data
 			data: { id: this.Id };
 
@@ -28,7 +29,7 @@
 		//	console.log(dadosUsuario);
 		},
 		
-		onDeleteCliente: async function (oEvent) {
+		emExcluirCliente: async function (oEvent) {
 			const dadosUsuario = this.getView().getModel("dadosUsuario").getData();
 			var oRouter = this.getOwnerComponent().getRouter();
 			MessageBox.warning("Deseja realmente remover este cliente?.", {
@@ -48,7 +49,8 @@
 						//console.log(dadosUsuario)
 						MessageBox.alert("Dados Deletado com sucesso!", {
 							onClose: function () {
-								oRouter.navTo("overview", {}, true);
+								const nomeDaRota = "overview"
+								oRouter.navTo(nomeDaRota, {}, true);
 
 							}
 						})
@@ -56,23 +58,24 @@
 								MessageToast.show("Operação cancelada");
 					}
 				}
-
 			});
 		},
 
-		onNavBack: function () {
+		emBarraDeRetorno: function () {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
 			if (sPreviousHash !== undefined) {
 				window.history.go(-1);
 			} else {
 				var oRouter = this.getOwnerComponent().getRouter();
-				oRouter.navTo("overview", {}, true);
+				const nomeDaRota = "overview";
+				oRouter.navTo(nomeDaRota, {}, true);
 			}
 		},
-		onEdit: function (oEvent) {
+		emEditar: function (oEvent) {
 			var oRouter = this.getOwnerComponent().getRouter();
-			oRouter.navTo("edit", {
+			const nomeDaRota = "edit";
+			oRouter.navTo(nomeDaRota, {
 				data: this.Id
 			});
 		},
