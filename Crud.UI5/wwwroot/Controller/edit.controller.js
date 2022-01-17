@@ -9,24 +9,17 @@
 	return Controller.extend("sap.ui.CrudSap.Controller.edit", {
 		onInit: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
-			oRouter.getRoute("edit").attachPatternMatched(this.RotaAtualizar, this);
-			oRouter.getRoute("cadastrar").attachPatternMatched(this.RotaCadastrar, this);
+			const nomeDaPrimeiraRota = "edit";
+			const nomeDaSegundaRota = "cadastrar";
+			oRouter.getRoute(nomeDaPrimeiraRota).attachPatternMatched(this.aoCoincidirComARotaDeAtualizar, this);
+			oRouter.getRoute(nomeDaSegundaRota).attachPatternMatched(this.aoCoincidirComARotaDeCadastrar, this);
 		},
 
-		getDadosUsuarioModel: function () {
+		receberDadosUsuarioDaModelo: function () {
 			return this.getView().getModel("dadosUsuario").getData();
 		},
 
-		RotaAtualizar: async function (oEvent) {
-			//this.Id = oEvent.getParameter("arguments").data
-			//data: { id: this.Id };
-
-			//const DadosUsuarios = await fetch(`/api/Cliente/${this.Id}`);
-			//const dadosUsuario = await DadosUsuarios.json()
-			//const jsonModel = new JSONModel(dadosUsuario)
-			//this.getView().setModel(jsonModel, "dadosUsuario")
-			//console.log(dadosUsuario);
-
+		aoCoincidirComARotaDeAtualizar: async function (oEvent) {
 			this.data = oEvent.getParameter("arguments").data;
 			const DadosUsuarios = await fetch(`/api/Cliente/${this.data}`);
 			const dadosUsuario = await DadosUsuarios.json();
@@ -35,19 +28,18 @@
 
 			if (!cliente.nome) {
 				var oRouter = this.getOwnerComponent().getRouter();
-				oRouter.navTo("listagemName", {}, true);
+				const nomeDaRota = "listagemName";
+				oRouter.navTo(nomeDaRota, {}, true);
 			}
 		},
 		
-
-		RotaCadastrar: async function (oEvent) {
+		aoCoincidirComARotaDeCadastrar: async function (oEvent) {
 			var oModel = new JSONModel()
 			this.getView().setModel(oModel, "dadosUsuario");
 		},
 
-		onAlterarClient: async function (ModelDados) {
-		//	let dadosUsuario = ModelDados;
-			let dadosUsuario = this.verificaSeOsCamposEstaoVazios(this.getDadosUsuarioModel());
+		emAlterarCliente: async function (ModelDados) {
+			let dadosUsuario = this.verificaSeOsCamposEstaoVazios(this.receberDadosUsuarioDaModelo());
 			if (dadosUsuario.idClientes == null) {
 
 				const uri = await fetch('https://localhost:44364/api/Cliente/cadastrar', {
@@ -58,15 +50,16 @@
 					},
 					body: JSON.stringify(dadosUsuario)
 				});
-				//console.log(dadosUsuario)
-				//		const content = await uri.json();
+
 				var oRouter = this.getOwnerComponent().getRouter();
 				MessageBox.alert("Cliente cadastrado com sucesso!", {
 					onClose: function () {
-						oRouter.navTo("overview", {}, true);
+						const nomeDaRota = "overview";
+						oRouter.navTo(nomeDaRota, {}, true);
 					}
 				});
-			} else {
+			}
+			else {
 				const uri = await fetch('/api/Cliente', {
 					method: 'PUT',
 					headers: {
@@ -80,12 +73,13 @@
 				var oRouter = this.getOwnerComponent().getRouter();
 				MessageBox.alert("Cliente alterado com sucesso!", {
 					onClose: function () {
-						oRouter.navTo("overview", {}, true);
+						const nomeDaRota = "overview";
+						oRouter.navTo(nomeDaRota, {}, true);
 					}
 				});
-
 			}
 		},
+
 		verificaSeOsCamposEstaoVazios: function (ModelDados) {
 			let dadosUsuario = ModelDados;
 			var validaNome = /[^a-zà-ú]/gi;
@@ -110,7 +104,8 @@
 				return ModelDados;
 			}
 		},
-		onNavBack: function () {
+
+		emBarraDeRetorno: function () {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
 
@@ -118,7 +113,8 @@
 				window.history.go(-1);
 			} else {
 				var oRouter = this.getOwnerComponent().getRouter();
-				oRouter.navTo("overview", {}, true);
+				const nomeDaRota = "overview"
+				oRouter.navTo(nomeDaRota, {}, true);
 			}
 		},
 	})

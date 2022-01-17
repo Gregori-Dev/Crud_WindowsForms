@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Crud.Domain;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Microsoft.AspNetCore.Http;
 
 namespace WebCrud.Controllers
 {
@@ -13,53 +9,80 @@ namespace WebCrud.Controllers
     public class ClienteController : Controller
     {
         private readonly IRepositorio repositorio;
-        public DadosUsuario dadosUsuario;
         public ClienteController(IRepositorio _repositorio)
         {
             repositorio = _repositorio;
-            DadosUsuario dadosUsuario = new();
         }
 
         [HttpGet("{id}")]
         [Route("ExibirUsuario")]
         public IActionResult ExibirUsuario(int id)
-        {
-            var unicoUsuario = repositorio.ExibirUsuario(id);
-            return Ok(unicoUsuario);
+        {        
+              try
+                {
+                    var unicoUsuario = repositorio.ExibirUsuario(id);
+                    return Ok(unicoUsuario);
+                }
+                catch (NullReferenceException) { throw new NullReferenceException("Exceção ocorrida por passar um valor nulo."); }
+                catch (FormatException) { throw new FormatException("Exceção desencadeada por um tipo de valor invalido"); }
+                catch (Exception) { throw new Exception("Error desconhecido: "); }   
         }
 
         [HttpGet]
         [Route("Inicio")]
         public IActionResult Inicio()
         {
-            var dados = repositorio.ExibirTodos();
-            return  Ok(dados);           
-        }
+            try
+                {
+                    var dados = repositorio.ExibirTodos();
+                    return Ok(dados);
+                }
+                catch (NullReferenceException) { throw new NullReferenceException("Exceção ocorrida por passar um valor nulo."); }
+                catch (FormatException) { throw new FormatException("Exceção desencadeada por um tipo de valor invalido"); }
+                catch (Exception) { throw new Exception("Error desconhecido: "); }
+            }       
 
         [HttpPost]
         [Route("Cadastrar")]
         public async Task<IActionResult> Cadastrar([FromBody] DadosUsuario dadosUsuario)
         {
-            repositorio.Adicionar(dadosUsuario);
-            return Ok(dadosUsuario);
-        }
+            try
+                {
+                    repositorio.Adicionar(dadosUsuario);
+                    return Ok(dadosUsuario);
+                }
+                catch (NullReferenceException) { throw new NullReferenceException("Exceção ocorrida por passar um valor nulo."); }
+                catch (FormatException) { throw new FormatException("Exceção desencadeada por um tipo de valor invalido"); }
+                catch (Exception) { throw new Exception("Error desconhecido: "); }
+            }      
 
         [HttpDelete("{dadosUsuario}")]
-        [Route("Delete")]
-        public async Task<IActionResult> Deletar([FromBody]  DadosUsuario dadosUsuario)
+        [Route("Excluir")]
+        public async Task<IActionResult> Excluir([FromBody]  DadosUsuario dadosUsuario)
         {
-            repositorio.Delete(dadosUsuario);
-            return Ok(dadosUsuario);
+            try
+                {
+                    repositorio.Delete(dadosUsuario);
+                    return Ok(dadosUsuario);
+                }
+                catch (NullReferenceException) { throw new NullReferenceException("Exceção ocorrida por passar um valor nulo."); }
+                catch (FormatException) { throw new FormatException("Exceção desencadeada por um tipo de valor invalido"); }
+                catch (Exception) { throw new Exception("Error desconhecido: "); }           
         }
 
         [HttpPut]
     //    [Route("edit")]
 
         public async Task<IActionResult> Editar([FromBody] DadosUsuario dadosUsuario)
-        {     
-            repositorio.Update(dadosUsuario);          
-            return Ok(dadosUsuario);
+        {
+            try
+                {
+                    repositorio.Update(dadosUsuario);
+                    return Ok(dadosUsuario);
+                }
+                catch (NullReferenceException) { throw new NullReferenceException("Exceção ocorrida por passar um valor nulo."); }
+                catch (FormatException) { throw new FormatException("Exceção desencadeada por um tipo de valor invalido"); }
+                catch (Exception) { throw new Exception("Error desconhecido: "); }            
         }
-
     }
 }

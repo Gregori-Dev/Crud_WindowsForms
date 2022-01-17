@@ -9,21 +9,22 @@
 	return Controller.extend("sap.ui.CrudSap.Controller.clienteLista", {
 		onInit: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
-			oRouter.getRoute("overview").attachPatternMatched(this.RotaLista, this);
+			const nomeDaRota = "overview";
+			oRouter.getRoute(nomeDaRota).attachPatternMatched(this.aoCoincidirComARotaDeListaDeUsuario, this);
 		},
-		getDadosUsuarioModel: function () {
+		
+		receberDadosUsuarioDaModelo: function () {
 			return this.getView().getModel("dadosUsuario").getData();
 		},
 
-		RotaLista: async function () {
+		aoCoincidirComARotaDeListaDeUsuario: async function () {
 			const DadosUsuarios = await fetch(`/api/Cliente/Inicio`);
 			const dadosUsuario = await DadosUsuarios.json()
 			const jsonModel = new JSONModel({ DadosUsuarios: dadosUsuario })
 			this.getView().setModel(jsonModel, "dadosUsuario")
-			console.log(dadosUsuario);
 		},
 
-		onFilterInvoices: function (oEvent) {
+		emFiltroDeUsuario: function (oEvent) {
 			var aFilter = [];
 			var sQuery = oEvent.getParameter("query");
 			if (sQuery) {
@@ -34,7 +35,7 @@
 			oBinding.filter(aFilter);
 		},
 
-		ondetalhes: function (oEvent) {
+		emDetalhes: function (oEvent) {
 			var bindingContext = oEvent.getSource().getBindingContext("dadosUsuario");
 			var selectedDados = bindingContext.getObject();
 			var IdView = selectedDados.idClientes;
@@ -44,17 +45,18 @@
 			});
 		},
 
-		onCreate: function () {;
+		emCadastrar: function () {;
 			var oRouter = this.getOwnerComponent().getRouter();
 			oRouter.navTo("cadastrar")
 		},
 
-		onDelete: function (oEvent) {
+		emExcluir: function (oEvent) {
 			var bindingContext = oEvent.getSource().getBindingContext("dadosUsuario");
 			var selectedDados = bindingContext.getObject();
 			var IdView = selectedDados.idClientes;
 			var oRouter = this.getOwnerComponent().getRouter();
-			oRouter.navTo("delete", {
+			const nomeDaRota = "excluir";
+			oRouter.navTo(nomeDaRota, {
 				data: IdView
 			});
       },
