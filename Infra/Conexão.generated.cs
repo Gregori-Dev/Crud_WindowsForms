@@ -9,20 +9,23 @@
 
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using Crud.Domain;
 using LinqToDB;
+using LinqToDB.Common;
 using LinqToDB.Configuration;
 using LinqToDB.Data;
+using LinqToDB.Mapping;
 
 namespace CrudModel
 {
-    /// <summary>
-    /// Database       : Crud
-    /// Data Source    : INVENT006
-    /// Server Version : 15.00.2000
-    /// </summary>
-    public partial class CrudDB : LinqToDB.Data.DataConnection
+	/// <summary>
+	/// Database       : Crud
+	/// Data Source    : INVENT044\SAP
+	/// Server Version : 14.00.2037
+	/// </summary>
+	public partial class CrudDB : LinqToDB.Data.DataConnection
 	{
 		public ITable<DadosUsuario> dadosUsuarios { get { return this.GetTable<DadosUsuario>(); } }
 
@@ -56,8 +59,6 @@ namespace CrudModel
 		partial void InitDataContext  ();
 		partial void InitMappingSchema();
 	}
-
-
 	public static partial class CrudDBStoredProcedures
 	{
 		#region SpAlterdiagram

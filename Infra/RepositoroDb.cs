@@ -43,7 +43,6 @@ namespace Crud.Infra
                             select p;
                 return query.ToList();
             }
-
         }
 
         public DadosUsuario ExibirUsuario(int id)

@@ -33,7 +33,7 @@ namespace Crud.Infra
                         Name = "Crud",
                         ProviderName = "System.Data.SqlClient",
                          ConnectionString =
-                            @"Server=INVENT006;Database=Crud;Trusted_Connection=True;Enlist=False;"
+                            @"Server=INVENT044\SAP; Initial Catalog = Crud; Integrated Security = True;"
                     };
             }
         }

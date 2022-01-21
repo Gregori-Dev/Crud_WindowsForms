@@ -8,9 +8,10 @@ namespace Crud.Infra
     {
         public void Adicionar(DadosUsuario dadosUsuario)
         {
+            var aumentarUm = 1;
             listUsuarios.Instance.ListagemCliente.Add(dadosUsuario);
             var maior = listUsuarios.Instance.ListagemCliente.Max(x => x.IdClientes);
-            dadosUsuario.IdClientes = maior + 1;
+            dadosUsuario.IdClientes = maior + aumentarUm;
             
         }
         public void Delete(DadosUsuario dadosUsuario)
